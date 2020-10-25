@@ -1,4 +1,8 @@
+# Rstudio default
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
+
+# Drake
+.drake

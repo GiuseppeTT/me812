@@ -4,7 +4,7 @@
 This repository comprehends a class project of the courses ME712 and ME812. It was developed by the students Giuseppe Tinti Tomio (ME812), João Accorsi (ME712), Júlio Mendes (ME712), Nicholas Salgado (ME712) and Pedro (ME812) under the supervision of Professor Mariana Motta. The project consists of making a statistical analysis for the Professor Aquiles Neto, from Institute of Language Studies - University of Campinas. He studied the difference between Angola and Moçambique portuguese.
 
 ## Structure
-The main.R script is the main entry point. It loads packages, source functions, build a drake plan and make (run) it. You can the script by simply using ```Rscript main.R''' on the terminal.
+The main.R script is the main entry point. It loads packages, source functions, build a drake plan and make (run) it. You can the script by simply using ```Rscript main.R``` on the terminal.
 
 Quick description of some files and folders:
 - main.R: is the main entry point and responsible for running the analysis.

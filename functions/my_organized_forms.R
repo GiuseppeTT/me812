@@ -1,0 +1,11 @@
+source("functions/my_add_id.R")
+# Remove col extra_informations and organize data frame
+a_finite = a_finite[,-c(1,154:167)] %>% gather(value = "acceptability", key = "sentence", -id)
+a_gerund = a_gerund[,-c(1,180:193)] %>% gather(value = "acceptability", key = "sentence", -id)
+a_broken = a_broken[,-c(1,107:119)]  %>% gather(value = "acceptability", key = "sentence", -id)
+a_past_participle = a_past_participle[,-c(1,154:166)]  %>% gather(value = "acceptability", key = "sentence", -id)
+m_gerund = m_gerund[,-c(1,184:196)]  %>% gather(value = "acceptability", key = "sentence", -id)
+m_indicative = m_indicative[,-c(1,170:183)]  %>% gather(value = "acceptability", key = "sentence", -id)
+m_sem1 = m_sem1[,-c(1,76:88)]  %>% gather(value = "acceptability", key = "sentence", -id)
+m_sem2 = m_sem2[,-c(1,83:95)] %>% gather(value = "acceptability", key = "sentence", -id)
+m_past_participle = m_past_participle[,-c(1,164:176)] %>% gather(value = "acceptability", key = "sentence", -id)

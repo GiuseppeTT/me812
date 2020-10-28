@@ -22,32 +22,5 @@ my_extra_informations <- function(){
     extra_informations$id = 0
     extra_informations$id = c(1:nrow(extra_informations))
 
-    # # Left joins in order to add ID to each individual data frame
-    # a_finite <- left_join(a_finite, extra_informations, by = cols)
-    # a_gerund <- left_join(a_gerund, extra_informations, by = cols)
-    # a_broken <- left_join(a_broken, extra_informations, by = cols)
-    # a_past_participle <- left_join(a_past_participle, extra_informations, by = cols)
-    #
-    # m_gerund <- left_join(m_gerund, extra_informations, by = cols)
-    # m_indicative <- left_join(m_indicative, extra_informations, by = cols)
-    # m_past_participle <- left_join(m_past_participle, extra_informations, by = cols)
-    # m_sem1 <- left_join(m_sem1, extra_informations, by = cols)
-    # m_sem2 <- left_join(m_sem2, extra_informations, by = cols)
-    #
-    # # change col names
-    # colnames(extra_informations) <- c("gender", "age", "hometown", "actual_city", "other_language",
-    #                                   "parents_language", "degree", "country")
-
-
-    # Replacing "-" with NA and "Opção 2" with 'Feminino'
-    # for (i in 1:nrow(extra_informations)) {
-    #     for(j in 1:ncol(extra_informations)){
-    #         if(extra_informations[i,j] == "-" | is.na(extra_informations[i,j])){
-    #             extra_informations[i,j] = NA
-    #         }
-    #         else if(extra_informations[i,1] == "Opção 2")
-    #             extra_informations[i,1] = "Feminino"
-    #     }
-    # }
     return(extra_informations)
 }

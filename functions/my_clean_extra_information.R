@@ -20,4 +20,5 @@ my_clean_extra_information <- function(){
     return(extra_informations)
 }
 
+# Creating extra_information data frame
 extra_information <- my_clean_extra_information()

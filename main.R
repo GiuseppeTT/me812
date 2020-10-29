@@ -31,10 +31,6 @@ source_directory("subplans/")
 # Define main plan -------------------------------------------------------------
 plan <- bind_plans(
     reading_plan,
-    # exploratory_analysis
-    # modeling
-    # relatorio
-    # apresentação
 )
 
 

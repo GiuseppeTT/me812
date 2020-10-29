@@ -25,5 +25,3 @@ my_acceptabilities <- function(){
             semi_join(my_data_original("mocambique"), by = c("sentence" = "Sentence"))) %>%
       return()
 }
-
-acceptabilities <- my_acceptabilities()

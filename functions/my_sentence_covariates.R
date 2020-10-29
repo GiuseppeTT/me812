@@ -2,15 +2,18 @@
 my_sentence_covariates <- function(){
   # loading data original
   source("functions/my_data_original.R")
-  
+
   # aux to change col names
-  aux <- my_data_original("angola")
-  
-  colnames(aux) <- colnames(my_data_original("mocambique")[,-2])
-  
+  angola <- my_data_original("angola")
+  mocambique <- my_data_original("mocambique")[,-2]
+
+  colnames(angola) <- c("sentence", "adverb_class", "level", "order",
+                     "country", "verb_form")
+
+  colnames(mocambique) <- c("sentence", "adverb_class", "level", "order",
+                            "country", "verb_form")
+
   # merge data frames
-  rbind(aux, my_data_original("mocambique")[,-2]) %>%
+  rbind(angola, mocambique) %>%
     return()
 }
-
-sentence_covariates = my_sentence_covariates()

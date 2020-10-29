@@ -4,13 +4,13 @@ my_read_forms <- function(country, path_name){
         path <- "data/forms/mocambique"
         file <- file.path(path, path_name)
         var_name <- read_csv(file)
-        var_name$country <- "mocambique"
+        var_name$country <- "Mozambique"
     }
     else{
         path <- "data/forms/angola"
         file <- file.path(path, path_name)
         var_name <- read_excel(file)
-        var_name$country <- "angola"
+        var_name$country <- "Angola"
     }
 
     # standardizing col names

@@ -1,9 +1,9 @@
 # Add id forms
 my_add_id <- function(var_name){
     #
-    source("functions/my_extra_informations.R")
+    source("functions/my_raw_extra_information.R")
 
-    extra_informations <- my_extra_informations()
+    extra_informations <- my_raw_extra_information()
     cols <- c("Sexo:", "Idade:", "Cidade onde passaste a infância (até os 12 anos):", "Cidade onde resides:",
               "Nos primeiros anos da infância, tu aprendeste alguma outra língua para além do português?",
               "Língua(s) dos pais:", "Nível de instrução:", "country")

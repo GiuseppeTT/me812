@@ -1,5 +1,5 @@
 # function to create extra_informations data frame
-my_extra_informations <- function(){
+my_raw_extra_information <- function(){
     # loading data forms
     source("functions/my_datas_forms.R")
 

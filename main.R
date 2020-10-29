@@ -16,14 +16,13 @@ source_directory <- function(
     ...
 ) {
     path %>%
-        fs::dir_ls(type = "file", glob = "*.R", ...) %>%
+        fs::dir_ls(recurse = TRUE, type = "file", glob = "*.R", ...) %>%
         walk(source)
 }
 
 
 
 # Load sub plans and their functions -------------------------------------------
-#source("functions/my_sentence_covariates.R")
 source_directory("functions/")
 source_directory("subplans/")
 

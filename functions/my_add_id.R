@@ -1,7 +1,8 @@
-source("functions/my_extra_informations.R")
-
 # Add id forms
 my_add_id <- function(var_name){
+    #
+    source("functions/my_extra_informations.R")
+
     extra_informations <- my_extra_informations()
     cols <- c("Sexo:", "Idade:", "Cidade onde passaste a infância (até os 12 anos):", "Cidade onde resides:",
               "Nos primeiros anos da infância, tu aprendeste alguma outra língua para além do português?",
@@ -13,14 +14,14 @@ my_add_id <- function(var_name){
 }
 
 # Applying function to data frames
-a_broken <- my_add_id(a_broken)
-a_finite <- my_add_id(a_finite)
-a_gerund <- my_add_id(a_gerund)
-a_past_participle <- my_add_id(a_past_participle)
+a_broken_forms <- my_add_id(a_broken)
+a_finite_forms <- my_add_id(a_finite)
+a_gerund_forms <- my_add_id(a_gerund)
+a_past_participle_forms <- my_add_id(a_past_participle)
 
-m_gerund <- my_add_id(m_gerund)
-m_indicative <- my_add_id(m_indicative)
-m_past_participle <- my_add_id(m_past_participle)
-m_sem1 <- my_add_id(m_sem1)
-m_sem2 <- my_add_id(m_sem2)
+m_gerund_forms <- my_add_id(m_gerund)
+m_indicative_forms <- my_add_id(m_indicative)
+m_past_participle_forms <- my_add_id(m_past_participle)
+m_sem1_forms <- my_add_id(m_sem1)
+m_sem2_forms <- my_add_id(m_sem2)
 

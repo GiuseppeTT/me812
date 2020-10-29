@@ -1,9 +1,9 @@
-# source functions to read datas
-source("functions/my_read_original.R")
-source("functions/my_remove_dot.R")
-
 # only read
 my_data_original <- function(country){
+    # source functions to read datas
+    source("functions/my_read_original.R")
+    source("functions/my_remove_dot.R")
+
   if(country == "angola"){
     a_finite_original <- my_read_original("a_finite_original.xlsx", "finite")
     a_gerund_original <- my_read_original("a_gerund_original.xlsx", "gerund")

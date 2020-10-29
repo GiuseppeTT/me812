@@ -1,7 +1,8 @@
-source("functions/my_datas_forms.R")
-
 # function to create extra_informations data frame
 my_extra_informations <- function(){
+    # loading data forms
+    source("functions/my_datas_forms.R")
+
     # original col names
     cols <- c("Sexo:", "Idade:", "Cidade onde passaste a infância (até os 12 anos):", "Cidade onde resides:",
                                  "Nos primeiros anos da infância, tu aprendeste alguma outra língua para além do português?",

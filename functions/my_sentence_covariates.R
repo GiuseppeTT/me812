@@ -1,8 +1,5 @@
 # function to create sentence covariates
 my_sentence_covariates <- function(){
-  # loading data original
-  source("functions/my_data_original.R")
-
   # aux to change col names
   angola <- my_data_original("angola")
   mocambique <- my_data_original("mocambique")[,-2]

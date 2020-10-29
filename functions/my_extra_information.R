@@ -1,8 +1,5 @@
 # Cleaning extra information data
 my_extra_information <- function(){
-    # loading raw extra information
-    source("functions/my_raw_extra_information.R")
-
     # change col names
     extra_informations <- my_raw_extra_information()
     colnames(extra_informations) <- c("gender", "age", "hometown", "actual_city", "other_language",

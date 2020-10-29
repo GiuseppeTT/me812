@@ -13,9 +13,6 @@ my_read_forms <- function(country, path_name){
         var_name$country <- "Angola"
     }
 
-    # standardizing col names
-    source("functions/my_col_names.R")
-
     # remove NA's
     var_name = var_name[!(is.na(var_name[,1])),]
 

@@ -1,12 +1,13 @@
 # Load packages ----------------------------------------------------------------
+library(drake)
+
 library(readr)
 library(tidyr)
 library(dplyr)
 library(ggplot2)
 library(stringr)
 library(readxl)
-library(drake)
-
+library(purrr)
 
 
 # Define helper functions for main.R -------------------------------------------
@@ -22,6 +23,7 @@ source_directory <- function(
 
 
 # Load sub plans and their functions -------------------------------------------
+#source("functions/my_sentence_covariates.R")
 source_directory("functions/")
 source_directory("subplans/")
 
@@ -29,7 +31,11 @@ source_directory("subplans/")
 
 # Define main plan -------------------------------------------------------------
 plan <- bind_plans(
-    # Empty
+    reading_plan,
+    # exploratory_analysis
+    # modeling
+    # relatorio
+    # apresentação
 )
 
 

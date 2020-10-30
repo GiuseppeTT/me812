@@ -5,5 +5,6 @@ my_complete_data <- function(
 ){
   sentence_covariates %>% inner_join(acceptabilities, by = "sentence") %>%
     inner_join(extra_information, by = c("id", "country")) %>%
+    mutate(acceptability = as.numeric(acceptability)) %>%
     return()
 }

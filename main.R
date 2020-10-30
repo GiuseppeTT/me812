@@ -1,7 +1,13 @@
 # Load packages ----------------------------------------------------------------
-library(tidyverse)
 library(drake)
 
+library(readr)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(stringr)
+library(readxl)
+library(purrr)
 
 
 # Define helper functions for main.R -------------------------------------------
@@ -10,13 +16,13 @@ source_directory <- function(
     ...
 ) {
     path %>%
-        fs::dir_ls(type = "file", glob = "*.R", ...) %>%
+        fs::dir_ls(recurse = TRUE, type = "file", glob = "*.R", ...) %>%
         walk(source)
 }
 
 
 
-# Load sub plans and their functions -------------------------------------------
+# Load subplans and their functions --------------------------------------------
 source_directory("functions/")
 source_directory("subplans/")
 
@@ -24,7 +30,7 @@ source_directory("subplans/")
 
 # Define main plan -------------------------------------------------------------
 plan <- bind_plans(
-    # Empty
+    reading_plan,
 )
 
 

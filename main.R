@@ -22,7 +22,7 @@ source_directory <- function(
 
 
 
-# Load sub plans and their functions -------------------------------------------
+# Load subplans and their functions --------------------------------------------
 source_directory("functions/")
 source_directory("subplans/")
 

@@ -1,7 +1,9 @@
 # ME812
 
 ## Overview
-This repository comprehends a class project of the courses ME712 and ME812. It was developed by the students Giuseppe Tinti Tomio (ME812), João Accorsi (ME712), Júlio Mendes (ME712), Nicholas Salgado (ME712) and Pedro Santos (ME812) under the supervision of Professor Mariana Motta. The project consists of performing a statistical analysis for the Professor Aquiles Neto, from Institute of Language Studies - University of Campinas. He studied the difference between Angola and Moçambique Portuguese.
+This repository comprehends a class project of the courses ME712 and ME812. It was developed by the students Giuseppe Tinti Tomio (ME812), João Accorsi (ME712), Júlio Mendes (ME712), Nicholas Salgado (ME712) and Pedro Santos (ME812) under the supervision of Professor Mariana Motta. 
+
+The project consists of a statistical analysis conducted for the Professor Aquiles Neto, from Institute of Language Studies - University of Campinas. He was interested in comparting the Portuguese of Angola and Moçambique.
 
 ## Structure
 The ```main.R``` script is the main entry point. It loads packages, source functions, build a drake plan and make (run) it. You can run the script by simply executing ```Rscript main.R``` in the terminal.
@@ -13,4 +15,4 @@ Description of the project structure:
 - ```functions/```: contains the functions used in the drake subplans. They usually start with ```my_```.
 
 Description of additional resources used in the project:
-- ```renv/```, ```renv.lock``` and ```.Rprofile```: are files/folders created by [renv](https://rstudio.github.io/renv/index.html) to setup the virtual environment.
+- ```renv/```, ```renv.lock``` and ```.Rprofile```: are created by renv to setup the virtual environment.

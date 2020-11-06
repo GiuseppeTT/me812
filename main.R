@@ -1,16 +1,8 @@
 # Load packages ----------------------------------------------------------------
 library(drake)
 
-library(readr)
-library(tidyr)
-library(dplyr)
-library(ggplot2)
-library(stringr)
+library(tidyverse)
 library(readxl)
-library(purrr)
-library(forcats)
-library(naniar)
-
 
 # Define helper functions for main.R -------------------------------------------
 source_directory <- function(

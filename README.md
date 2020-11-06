@@ -6,7 +6,7 @@ This repository comprehends a class project of the courses ME712 and ME812. It w
 The project consists of a statistical analysis conducted for the Professor Aquiles Neto, from Institute of Language Studies - University of Campinas. He was interested in comparting the Portuguese of Angola and Moçambique.
 
 ## Structure
-The ```main.R``` script is the main entry point. It loads packages, source functions, build a drake plan and make (run) it. You can run the script by simply executing ```Rscript main.R``` in the terminal.
+The ```main.R``` script is the main entry point. It loads packages, sources functions, builds a drake plan and makes (runs) it. You can run the script by simply executing ```Rscript main.R``` in the terminal.
 
 Description of the project structure:
 - ```main.R```: is the main entry point and responsible for running the analysis.

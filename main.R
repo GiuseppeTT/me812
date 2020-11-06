@@ -8,6 +8,8 @@ library(ggplot2)
 library(stringr)
 library(readxl)
 library(purrr)
+library(forcats)
+library(naniar)
 
 
 # Define helper functions for main.R -------------------------------------------
@@ -31,6 +33,7 @@ source_directory("subplans/")
 # Define main plan -------------------------------------------------------------
 plan <- bind_plans(
     reading_plan,
+    exploratory_analysis_plan,
 )
 
 

@@ -1,13 +1,13 @@
 .PHONY:
 	dependencies \
-	project \
+	analysis \
 	clean
 
 dependencies:
 	Rscript -e "install.packages('renv')"
 	Rscript -e "renv::restore()"
 
-project:
+analysis:
 	Rscript main.R
 
 clean:

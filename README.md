@@ -14,7 +14,7 @@ git clone https://github.com/GiuseppeTT/me812
 cd me812
 
 make dependencies
-make project
+make analysis
 ```
 
 This will:

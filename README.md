@@ -3,7 +3,7 @@
 ## Overview
 This repository comprehends a class project of the courses ME712 and ME812. It was developed by the students Giuseppe Tinti Tomio (ME812), João Accorsi (ME712), Júlio Mendes (ME712), Nicholas Salgado (ME712) and Pedro Santos (ME812) under the supervision of Professor Mariana Motta. 
 
-The project consists of a statistical analysis conducted for the Professor Aquiles Neto, from Institute of Language Studies - University of Campinas. He was interested in comparting the Portuguese of Angola and Moçambique.
+The project consists of a statistical analysis conducted for the Professor Aquiles Neto, from the Institute of Language Studies - University of Campinas. He was interested in comparting the Portuguese of Angola and Moçambique.
 
 
 ## How to run
@@ -20,8 +20,8 @@ make analysis
 This will:
 - Clone the project to the folder ```me812``` in your current path
 - Access the project folder
-- Install the necessary R dependencies
-- Run the analysis (e.g. clean data and run models)
+- Install the necessary R dependencies (through a virtual environment)
+- Run the analysis (e.g. clean data, run models and build report)
 
 
 ## Structure

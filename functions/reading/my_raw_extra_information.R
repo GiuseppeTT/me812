@@ -19,7 +19,7 @@ my_raw_extra_information <- function(){
     # original col names
     cols <- c("Sexo:", "Idade:", "Cidade onde passaste a infância (até os 12 anos):", "Cidade onde resides:",
                                  "Nos primeiros anos da infância, tu aprendeste alguma outra língua para além do português?",
-                                 "Língua(s) dos pais:", "Nível de instrução:", "country")
+                                 "Língua(s) dos pais:", "Nível de instrução:", "country", "Em caso positivo, informa o nome completo:")
 
     # merging data
     extra_informations <- rbind(a_broken %>% select(cols),

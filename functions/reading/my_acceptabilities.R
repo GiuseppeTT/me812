@@ -2,7 +2,7 @@ my_add_id <- function(var_name){
   extra_informations <- my_raw_extra_information()
   cols <- c("Sexo:", "Idade:", "Cidade onde passaste a infância (até os 12 anos):", "Cidade onde resides:",
             "Nos primeiros anos da infância, tu aprendeste alguma outra língua para além do português?",
-            "Língua(s) dos pais:", "Nível de instrução:", "country")
+            "Língua(s) dos pais:", "Nível de instrução:", "country", "Em caso positivo, informa o nome completo:")
 
   # Left joins in order to add ID to each individual data frame
   var_name %>% left_join(extra_informations, by = cols) %>%

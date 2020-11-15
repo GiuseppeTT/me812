@@ -3,7 +3,7 @@ my_extra_information <- function(){
     # change col names
     extra_informations <- my_raw_extra_information()
     colnames(extra_informations) <- c("gender", "age", "hometown", "actual_city", "other_language",
-                                      "parents_language", "degree", "country", "id")
+                                      "parents_language", "degree", "country", "name", "id")
 
 
     # Replacing "-" with NA and "Opção 2" with 'Feminino'
@@ -16,5 +16,6 @@ my_extra_information <- function(){
                 extra_informations[i,1] = "Feminino"
         }
     }
-    return(extra_informations)
+    return(extra_informations %>%
+               select(-name))
 }

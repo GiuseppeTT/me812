@@ -10,7 +10,7 @@ The project consists of a statistical analysis conducted for the Professor Aquil
 You can reproduce the analysis by running the following commands in the terminal:
 
 ```
-git clone https://github.com/GiuseppeTT/me812
+git clone https://github.com/GiuseppeTT/me812.git
 cd me812
 
 make dependencies
@@ -35,4 +35,4 @@ Description of the project structure:
 
 Description of additional resources used in the project:
 - ```renv/```, ```renv.lock``` and ```.Rprofile```: are created by renv to setup the virtual environment.
-- ```makefile```: is a set of useful commands, which can be accessed with ```make <command name>``` in the terminal.
+- ```makefile```: contains a set of useful commands, which can be accessed with ```make <command name>``` in the terminal.

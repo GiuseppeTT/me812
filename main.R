@@ -26,6 +26,7 @@ source_directory("subplans/")
 plan <- bind_plans(
     reading_plan,
     exploratory_analysis_plan,
+    model_plan
 )
 
 

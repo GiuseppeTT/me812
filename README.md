@@ -36,3 +36,4 @@ Description of the project structure:
 Description of additional resources used in the project:
 - ```renv/```, ```renv.lock``` and ```.Rprofile```: are created by renv to setup the virtual environment.
 - ```makefile```: contains a set of useful commands, which can be accessed with ```make <command name>``` in the terminal.
+- ```.github/workflows```: contains the workflows used by Github Actions for CI.

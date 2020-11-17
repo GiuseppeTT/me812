@@ -4,7 +4,6 @@
 	clean
 
 dependencies:
-	Rscript -e "install.packages('renv')"
 	Rscript -e "renv::restore()"
 
 analysis:

@@ -61,8 +61,6 @@ my_extract_results <- function(
             `p-value` = p.value
         )
 
-    stop("Test")
-
     return(results)
 }
 

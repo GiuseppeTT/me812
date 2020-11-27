@@ -1,10 +1,11 @@
 FROM rocker/tidyverse:latest
 
-COPY . home/rstudio/me812/
+ARG PROJECT_PATH=home/rstudio/me812/
 
-# RUN true \
-#     && git clone --recurse-submodules https://github.com/GiuseppeTT/me812.git home/rstudio/me812 \
-#     && cd /home/rstudio/me812 \
-#     && make dependencies
+COPY . $PROJECT_PATH
 
-WORKDIR /home/rstudio/me812
+RUN true \
+    && cd $PROJECT_PATH \
+    && make dependencies
+
+WORKDIR $PROJECT_PATH

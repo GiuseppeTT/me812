@@ -25,6 +25,8 @@ jobs:
         with:
           push: true
           tags: giuseppett/me812:latest
+          secrets: |
+            GIT_AUTH_TOKEN=${{ secrets.PAT }}
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

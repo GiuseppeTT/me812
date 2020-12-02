@@ -7,8 +7,8 @@ The project consists of a statistical analysis conducted for the Professor Aquil
 
 **Warning:** currently, the data, report and presentation slides are not publicly available as they are part of an unpublished research.
 
-
 ## How to run
+### Analysis
 If you have access to the data private repository, you can reproduce the analysis by running the following commands in the terminal:
 
 ```
@@ -25,7 +25,7 @@ This will:
 - Install the necessary R dependencies (through a virtual environment).
 - Run the analysis (i.e. clean data, run models, build report and build presentation).
 
-## Shiny dashboard
+### Shiny dashboard
 Additionally, you can open the shiny dashboard by running the following commands in the terminal:
 
 ```

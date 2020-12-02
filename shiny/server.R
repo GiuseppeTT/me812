@@ -1,7 +1,7 @@
 # Credentials ------------------------------------------------------------------
 credentials <- tibble(
-    user = c("brown"),
-    password = c("fox")
+    user = Sys.getenv("SHINYMANAGER_USER"),
+    password = Sys.getenv("SHINYMANAGER_PASSWORD")
 )
 
 

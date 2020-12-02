@@ -16,7 +16,8 @@ jobs:
       - name: Set up R
         uses: r-lib/actions/setup-r@v1
 
-      - name: Push to shiny.io
+      - name: Push to shinyapps.io
         run: |
+          rm .Rprofile
           Rscript -e "rsconnect::setAccountInfo(name = ${{secrets.SHINYAPPS_NAME}}, token = ${{secrets.SHINYAPPS_TOKEN}}, secret = ${{secrets.SHINYAPPS_SECRET}})"
           Rscript -e "rsconnect::deployApp()"

@@ -25,6 +25,19 @@ This will:
 - Install the necessary R dependencies (through a virtual environment).
 - Run the analysis (i.e. clean data, run models, build report and build presentation).
 
+## Shiny dashboard
+Additionally, you can open the shiny dashboard with the command in the terminal:
+
+```
+make app
+```
+
+This will:
+- Open a new window if you are using Rstudio.
+- Give a link to access on your browser otherwise. 
+
+Alternatively, you can simply visit the site https://giuseppett.shinyapps.io/me812/ (requires login).
+
 
 ## Structure
 The ```main.R``` script is the main entry point. It loads packages, sources functions, builds a drake plan and makes (runs) it. You can run the script by simply executing ```Rscript main.R``` in the terminal.

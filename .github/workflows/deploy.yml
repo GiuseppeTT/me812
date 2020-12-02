@@ -16,16 +16,25 @@ jobs:
       - name: Set up R
         uses: r-lib/actions/setup-r@v1
 
+      - name: Cache renv packages
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.RENV_PATHS_ROOT }}
+          key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-renv-
+      - name: Install dependencies with renv
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y libcurl4-openssl-dev
+          make dependencies
+
       - name: Push to shinyapps.io
         env:
           SHINYMANAGER_USER: ${{ secrets.SHINYMANAGER_USER }}
           SHINYMANAGER_PASSWORD: ${{ secrets.SHINYMANAGER_PASSWORD }}
         run: |
           rm .Rprofile  # shinyapps doesn't work with renv
-          
-          sudo apt-get update -y
-          sudo apt-get install -y libcurl4-openssl-dev
-          Rscript -e "install.packages('rsconnect')"
           
           Rscript -e "rsconnect::setAccountInfo(name = '${{ secrets.SHINYAPPS_NAME }}', token = '${{ secrets.SHINYAPPS_TOKEN }}', secret = '${{ secrets.SHINYAPPS_SECRET }}')"
           Rscript -e "rsconnect::deployApp()"

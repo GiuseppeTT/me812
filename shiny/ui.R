@@ -1,3 +1,4 @@
+# UI ---------------------------------------------------------------------------
 ui <- navbarPage(
     # Configurations -----------------------------------------------------------
     title = "ME812 - Statistical Consulting II",
@@ -20,13 +21,25 @@ ui <- navbarPage(
         title = "Data",
         tabPanel(
             title = "Responses",
-            h2("Responses"),
-            dataTableOutput("responses")
+            sidebarPanel(
+                h3("Responses"),
+                downloadButton("download_responses", "Download data"),
+                width = 3
+            ),
+            mainPanel(
+                dataTableOutput("responses")
+            )
         ),
         tabPanel(
             title = "Participants",
-            h2("Participants"),
-            dataTableOutput("participants")
+            sidebarPanel(
+                h3("Participants"),
+                downloadButton("download_participants", "Download data"),
+                width = 3
+            ),
+            mainPanel(
+                dataTableOutput("participants")
+            )
         )
     ),
 
@@ -34,9 +47,9 @@ ui <- navbarPage(
 
     # Exploratory analysis -----------------------------------------------------
     navbarMenu(
-        title = "Exploratory analysis",
+        title = "Analysis",
         tabPanel(
-            title = "Means",
+            title = "Acceptability means",
             sidebarPanel(
                 h3("Acceptability means"),
                 uiOutput("verb_form_select_input"),
@@ -79,3 +92,8 @@ ui <- navbarPage(
         )
     )
 )
+
+
+
+# Apply login screen -----------------------------------------------------------
+ui <- secure_app(ui)

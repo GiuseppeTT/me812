@@ -2,6 +2,7 @@ library(tidyverse)
 
 library(shiny)
 library(shinythemes)
+library(shinymanager)
 library(DT)
 
 library(drake)

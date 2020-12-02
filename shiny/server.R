@@ -1,44 +1,74 @@
+# Credentials ------------------------------------------------------------------
+credentials <- tibble(
+    user = c("brown"),
+    password = c("fox")
+)
+
+
+
+# Pre-work ---------------------------------------------------------------------
+loadd(complete_data)
+loadd(mean_acceptabilities)
+loadd(anova_results)
+
+responses <-
+    complete_data %>%
+    arrange(country, verb_form, adverb_class, order, id) %>%
+    select(
+        Country = country,
+        `Verb form` = verb_form,
+        `Adverb class` = adverb_class,
+        Order = order,
+        Sentence = sentence,
+        `Participant ID` = id,
+        Acceptability = acceptability
+    )
+
+participants <-
+    complete_data %>%
+    arrange(id, country) %>%
+    select(
+        `Participant ID` = id,
+        Country = country,
+        Gender = gender,
+        Age = age,
+        Degree = degree,
+        Hometown = hometown,
+        `Actual city` = actual_city,
+        `Parents' language` = parents_language,
+        `Other language` = other_language
+    )
+
+# Server -----------------------------------------------------------------------
 server <- function(
     input,
     output
 ) {
-    # Pre-work -----------------------------------------------------------------
-    loadd(complete_data)
-    loadd(mean_acceptabilities)
-    loadd(anova_results)
+    # Login screen -------------------------------------------------------------
+    res_auth <- secure_server(
+        check_credentials = check_credentials(credentials)
+    )
+
+    output$auth_output <- renderPrint({
+        reactiveValuesToList(res_auth)
+    })
 
 
 
     # Data ---------------------------------------------------------------------
-    output$responses <- renderDataTable({
-        complete_data %>%
-            arrange(country, verb_form, adverb_class, order, id) %>%
-            select(
-                Country = country,
-                `Verb form` = verb_form,
-                `Adverb class` = adverb_class,
-                Order = order,
-                Sentence = sentence,
-                `Participant ID` = id,
-                Acceptability = acceptability
-            )
-    })
+    output$responses <- renderDataTable({responses})
 
-    output$participants <- renderDataTable({
-        complete_data %>%
-            arrange(id, country) %>%
-            select(
-                `Participant ID` = id,
-                Country = country,
-                Gender = gender,
-                Age = age,
-                Degree = degree,
-                Hometown = hometown,
-                `Actual city` = actual_city,
-                `Parents' language` = parents_language,
-                `Other language` = other_language
-            )
-    })
+    output$download_responses <- downloadHandler(
+        filename = "responses.csv",
+        content = function(file) {write_csv(responses, file)}
+    )
+
+    output$participants <- renderDataTable({participants})
+
+    output$download_participants <- downloadHandler(
+        filename = "participants.csv",
+        content = function(file) {write_csv(participants, file)}
+    )
 
 
 

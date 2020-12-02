@@ -2,6 +2,9 @@ name: Deploy
 
 on: [pull_request, workflow_dispatch]
 
+env:
+  RENV_PATHS_ROOT: ~/.local/share/renv
+
 jobs:
   deploy:
     name: deploy

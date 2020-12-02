@@ -19,6 +19,10 @@ my_estimate_mean_acceptabilities <- function(
     summarized_data <-
         complete_data %>%
         mutate(adverb_class = fct_reorder(adverb_class, adverb_level)) %>%
+        mutate(
+            adverb_class = str_to_title(adverb_class),
+            verb_form = str_to_title(verb_form)
+        ) %>%
         select(country, verb_form, adverb_class, order, acceptability) %>%
         group_by(country, verb_form, adverb_class, order) %>%
         summarise(acceptability = list(acceptability)) %>%

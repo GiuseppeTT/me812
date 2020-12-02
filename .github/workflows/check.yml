@@ -26,11 +26,13 @@ jobs:
           key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
           restore-keys: |
             ${{ runner.os }}-renv-
+
       - name: Install dependencies with renv
         run: |
           sudo apt-get update -y
           sudo apt-get install -y libcurl4-openssl-dev
           make dependencies
+
       - name: Run analysis
         run: |
           make analysis

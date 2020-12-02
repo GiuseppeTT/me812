@@ -40,7 +40,8 @@ jobs:
       - name: Push to shinyapps.io
         run: |
           # Add environment variables to shinyapps
-          echo "SHINYMANAGER_USER='${{ secrets.SHINYMANAGER_USER }}';SHINYMANAGER_PASSWORD='${{ secrets.SHINYMANAGER_PASSWORD }}'" > .Renviron
+          echo "SHINYMANAGER_USER=${{ secrets.SHINYMANAGER_USER }}" > .Renviron
+          echo "SHINYMANAGER_PASSWORD=${{ secrets.SHINYMANAGER_PASSWORD }}" >> .Renviron
           
           # shinyapps doesn't work with renv
           rm .Rprofile

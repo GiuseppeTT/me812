@@ -31,9 +31,16 @@ ui <- navbarPage(
 
 
     # Exploratory analysis -----------------------------------------------------
-    tabPanel(
+    navbarMenu(
         title = "Exploratory analysis",
-        plotOutput("mean_acceptability_plot")
+        tabPanel(
+            title = "Means",
+            plotOutput("mean_acceptability_plot")
+        ),
+        tabPanel(
+            title = "Participants",
+            "Empty"
+        )
     ),
 
 

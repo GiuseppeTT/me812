@@ -26,7 +26,7 @@ This will:
 - Run the analysis (i.e. clean data, run models, build report and build presentation).
 
 ## Shiny dashboard
-Additionally, you can open the shiny dashboard with the command in the terminal:
+Additionally, you can open the shiny dashboard by running the following commands in the terminal:
 
 ```
 make app

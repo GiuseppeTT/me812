@@ -56,7 +56,7 @@ Description of additional resources used in the project:
 
 ## Useful Links
 Some useful links:
-- drake: https://github.com/ropensci/drake
-- renv: https://github.com/rstudio/renv/
-- GitHub Actions: https://github.com/features/actions
-
+- shiny: https://github.com/rstudio/shiny.
+- drake: https://github.com/ropensci/drake.
+- renv: https://github.com/rstudio/renv/.
+- GitHub Actions: https://github.com/features/actions.

@@ -44,9 +44,11 @@ The ```main.R``` script is the main entry point. It loads packages, sources func
 
 Description of the project structure:
 - ```main.R```: is the main entry point and responsible for running the analysis.
+- ```app.R```: defines the shiny application. You need to run the analysis before using it.
 - ```data/```: is a private repository that contains the raw data.
 - ```subplans/```: contains the drake subplans used to build the main drake plan.
 - ```functions/```: contains the functions used in the drake subplans. They usually start with ```my_```.
+- ```shiny/```: contains the ui and server definitions used to define the shiny application.
 
 Description of additional resources used in the project:
 - ```renv/```, ```renv.lock``` and ```.Rprofile```: are created by renv to setup the virtual environment.
@@ -56,7 +58,7 @@ Description of additional resources used in the project:
 
 ## Useful Links
 Some useful links:
-- shiny: https://github.com/rstudio/shiny.
 - drake: https://github.com/ropensci/drake.
+- shiny: https://github.com/rstudio/shiny.
 - renv: https://github.com/rstudio/renv/.
 - GitHub Actions: https://github.com/features/actions.

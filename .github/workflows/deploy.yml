@@ -18,9 +18,9 @@ jobs:
 
       - name: Push to shinyapps.io
         env:
-          SHINYMANAGER_USER: ${{SHINYMANAGER_USER}}
-          SHINYMANAGER_PASSWORD: ${{secrets.SHINYMANAGER_PASSWORD}}
+          SHINYMANAGER_USER: ${{ secrets.SHINYMANAGER_USER }}
+          SHINYMANAGER_PASSWORD: ${{ secrets.SHINYMANAGER_PASSWORD }}
         run: |
           rm .Rprofile  # shinyapps doesn't work with renv
-          Rscript -e "rsconnect::setAccountInfo(name = ${{secrets.SHINYAPPS_NAME}}, token = ${{secrets.SHINYAPPS_TOKEN}}, secret = ${{secrets.SHINYAPPS_SECRET}})"
+          Rscript -e "rsconnect::setAccountInfo(name = ${{ secrets.SHINYAPPS_NAME }}, token = ${{ secrets.SHINYAPPS_TOKEN }}, secret = ${{ secrets.SHINYAPPS_SECRET }})"
           Rscript -e "rsconnect::deployApp()"

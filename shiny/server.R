@@ -16,8 +16,8 @@ responses <-
     arrange(country, verb_form, adverb_class, order, id) %>%
     select(
         Country = country,
-        `Verb form` = verb_form,
-        `Adverb class` = adverb_class,
+        `Verb Form` = verb_form,
+        `Adverb Class` = adverb_class,
         Order = order,
         Sentence = sentence,
         `Participant ID` = id,
@@ -34,10 +34,12 @@ participants <-
         Age = age,
         Degree = degree,
         Hometown = hometown,
-        `Actual city` = actual_city,
-        `Parents' language` = parents_language,
-        `Other language` = other_language
+        `Actual City` = actual_city,
+        `Parents' Language` = parents_language,
+        `Other Language` = other_language
     )
+
+
 
 # Server -----------------------------------------------------------------------
 server <- function(
@@ -56,44 +58,44 @@ server <- function(
 
 
     # Data ---------------------------------------------------------------------
-    output$responses <- renderDataTable({responses})
-
     output$download_responses <- downloadHandler(
         filename = "responses.csv",
         content = function(file) {write_csv(responses, file)}
     )
 
-    output$participants <- renderDataTable({participants})
+    output$responses <- renderDataTable({responses})
 
     output$download_participants <- downloadHandler(
         filename = "participants.csv",
         content = function(file) {write_csv(participants, file)}
     )
 
+    output$participants <- renderDataTable({participants})
+
 
 
     # Exploratory analysis -----------------------------------------------------
-    output$verb_form_select_input <- renderUI({
+    output$verb_form_select_input1 <- renderUI({
         verb_forms <-
             mean_acceptabilities %>%
-            pull(`Verb form`) %>%
+            pull(`Verb Form`) %>%
             unique()
 
         selectInput(
-            "verb_form",
-            'Verb form',
+            "verb_form1",
+            'Verb Form',
             choices = verb_forms,
         )
     })
 
-    output$order_select_input <- renderUI({
+    output$order_select_input1 <- renderUI({
         orders <-
             mean_acceptabilities %>%
             pull(Order) %>%
             unique()
 
         selectInput(
-            "order",
+            "order1",
             "Order",
             choices = orders,
         )
@@ -103,41 +105,72 @@ server <- function(
         plot_data <-
             mean_acceptabilities %>%
                 filter(
-                `Verb form` == input$verb_form,
-                Order == input$order
-            ) %>%
-            mutate(Significant = if_else(`p-value` < 0.05, TRUE, FALSE, missing = FALSE))
+                `Verb Form` == input$verb_form1,
+                Order == input$order1
+            )
 
         plot <-
             plot_data %>%
-            ggplot(aes(x = `Adverb class`)) +
+            ggplot(aes(x = `Adverb Class`)) +
+            geom_col(aes(y = `Mean Acceptability`)) +
             facet_grid(NULL, vars(Country)) +
             coord_flip() +
             scale_y_continuous(limits = c(0, 5), expand = c(0, 0)) +
             theme_bw(base_size = 18) +
-            theme(panel.spacing = unit(1, "lines"), legend.position = "top")
+            theme(panel.spacing = unit(1, "lines")) +
+            labs(
+                x = "Adverb Class",
+                y = "Mean Acceptability"
+            )
 
-        if (input$mean_significance) {
-            plot <-
-                plot +
-                geom_col(aes(y = `Mean acceptability`, fill = Significant)) +
-                geom_errorbar(aes(ymin = `CI Low`, ymax = `CI High`)) +
-                geom_hline(aes(yintercept = 3), size = 2, color = "red") +
-                labs(
-                    x = "Adverb class",
-                    y = "Acceptability",
-                    fill = "p-value < 0.05:"
-                )
+        plot
+    })
 
-        } else {
-            plot <-
-                plot +
-                geom_col(aes(y = `Mean acceptability`)) +
-                labs(
-                    x = "Adverb class",
-                    y = "Acceptability"
-                )
-        }
+    output$verb_form_select_input2 <- renderUI({
+        verb_forms <-
+            mean_acceptabilities %>%
+            pull(`Verb Form`) %>%
+            unique()
+
+        selectInput(
+            "verb_form2",
+            'Verb Form',
+            choices = verb_forms,
+        )
+    })
+
+    output$order_select_input2 <- renderUI({
+        orders <-
+            mean_acceptabilities %>%
+            pull(Order) %>%
+            unique()
+
+        selectInput(
+            "order2",
+            "Order",
+            choices = orders,
+        )
+    })
+
+    output$country_differences_plot <- renderPlot({
+        plot_data <-
+            anova_results %>%
+            filter(
+                `Verb Form` == input$verb_form2,
+                Order == input$order2
+            )
+
+        plot <-
+            plot_data %>%
+            ggplot(aes(x = `Adverb Class`)) +
+            geom_col(aes(y = `Estimate`)) +
+            coord_flip() +
+            scale_y_continuous(limits = c(-5, 5), expand = c(0, 0)) +
+            theme_bw(base_size = 18) +
+            labs(
+                x = "Adverb Class",
+                y = "Acceptability Difference (Mozambique - Angola)"
+            )
 
         plot
     })
@@ -145,12 +178,22 @@ server <- function(
 
 
     # Model --------------------------------------------------------------------
+    output$download_mean_acceptabilities <- downloadHandler(
+        filename = "acceptabilities_means.csv",
+        content = function(file) {write_csv(mean_acceptabilities, file)}
+    )
+
     output$mean_acceptabilities <- renderDataTable({
         mean_acceptabilities %>%
             mutate(`CI High` = "Infinity") %>%
             datatable() %>%
-            formatRound(c("Mean acceptability", "CI Low", "p-value"), 2)
+            formatRound(c("Mean Acceptability", "CI Low", "p-value"), 2)
     })
+
+    output$download_country_differences <- downloadHandler(
+        filename = "country_differences.csv",
+        content = function(file) {write_csv(anova_results, file)}
+    )
 
     output$anova_results <- renderDataTable({
         anova_results %>%

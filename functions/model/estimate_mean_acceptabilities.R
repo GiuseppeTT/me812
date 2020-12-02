@@ -44,10 +44,10 @@ my_estimate_mean_acceptabilities <- function(
         mutate(p.value = p.adjust(p.value)) %>%
         select(
             Country = country,
-            `Verb form` = verb_form,
-            `Adverb class` = adverb_class,
+            `Verb Form` = verb_form,
+            `Adverb Class` = adverb_class,
             Order = order,
-            `Mean acceptability` = estimate,
+            `Mean Acceptability` = estimate,
             `CI Low` = conf.low,
             `CI High` = conf.high,
             `p-value` = p.value

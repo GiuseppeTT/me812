@@ -1,0 +1,53 @@
+name: Deploy
+
+on: 
+  push:
+    branches: 
+      - main
+  workflow_dispatch:
+
+env:
+  RENV_PATHS_ROOT: ~/.local/share/renv
+
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          submodules: 'recursive'
+          token: ${{ secrets.PAT }}
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v1
+
+      - name: Cache renv packages
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.RENV_PATHS_ROOT }}
+          key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-renv-
+            
+      - name: Install dependencies
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y libcurl4-openssl-dev
+          make dependencies
+          
+      - name: Run analysis
+        run: |
+          make analysis
+
+      - name: Push app to shinyapps.io
+        run: |
+          # shinyapps deployment requires environment variables to be saved on .Renviron
+          echo "SHINYMANAGER_USER=${{ secrets.SHINYMANAGER_USER }}" > .Renviron
+          echo "SHINYMANAGER_PASSWORD=${{ secrets.SHINYMANAGER_PASSWORD }}" >> .Renviron
+          
+          # shinyapps doesn't work with renv
+          rm .Rprofile
+          Rscript -e "source('renv/activate.R');rsconnect::setAccountInfo(name = '${{ secrets.SHINYAPPS_NAME }}', token = '${{ secrets.SHINYAPPS_TOKEN }}', secret = '${{ secrets.SHINYAPPS_SECRET }}')"
+          Rscript -e "source('renv/activate.R');rsconnect::deployApp()"

@@ -6,3 +6,7 @@
 
 # Drake
 .drake
+
+# rsconnect
+rsconnect/
+.Renviron

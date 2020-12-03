@@ -66,7 +66,7 @@ Description of additional resources used in the project:
 - ```renv/```, ```renv.lock``` and ```.Rprofile```: are created by renv to setup the virtual environment.
 - ```makefile```: contains a set of useful commands, which can be accessed with ```make <command name>``` in the terminal.
 - ```.github/workflows```: contains the workflows used by GitHub Actions for CI.
-
+- ```Dockerfile```: defines the docker container used to possibly reproduce the analysis/dashboard.
 
 ## Useful Links
 Some useful links:

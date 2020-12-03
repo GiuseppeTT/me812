@@ -1,6 +1,10 @@
 name: Deploy
 
-on: [pull_request, workflow_dispatch]
+on: 
+  push:
+    branches: 
+      - main
+  workflow_dispatch:
 
 env:
   RENV_PATHS_ROOT: ~/.local/share/renv
@@ -26,8 +30,8 @@ jobs:
           key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
           restore-keys: |
             ${{ runner.os }}-renv-
-
-      - name: Install dependencies with renv
+            
+      - name: Install dependencies
         run: |
           sudo apt-get update -y
           sudo apt-get install -y libcurl4-openssl-dev
@@ -37,9 +41,9 @@ jobs:
         run: |
           make analysis
 
-      - name: Push to shinyapps.io
+      - name: Push app to shinyapps.io
         run: |
-          # Add environment variables to shinyapps
+          # shinyapps deployment requires environment variables to be saved on .Renviron
           echo "SHINYMANAGER_USER=${{ secrets.SHINYMANAGER_USER }}" > .Renviron
           echo "SHINYMANAGER_PASSWORD=${{ secrets.SHINYMANAGER_PASSWORD }}" >> .Renviron
           

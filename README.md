@@ -5,7 +5,7 @@ This repository comprehends a class project of the courses ME712 and ME812. It w
 
 The project consists of a statistical analysis conducted for the Professor Aquiles Neto (Institute of Language Studies, University of Campinas). He was interested in comparing the Portuguese of Angola and Mozambique.
 
-**Warning:** currently, the data, report and presentation slides are not publicly available as they are part of an unpublished research.
+**Warning:** currently, the data, report, presentation and dashboard are not publicly available as they are part of an unpublished research.
 
 ## How to run
 ### Analysis

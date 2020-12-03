@@ -25,7 +25,7 @@ This will:
 - Install the necessary R dependencies (through a virtual environment).
 - Run the analysis (i.e. clean data, run models, build report and build presentation).
 
-### Shiny dashboard
+### Dashboard
 Additionally, you can open the shiny dashboard by running the following commands in the terminal:
 
 ```
@@ -37,6 +37,18 @@ This will:
 - Give a link to access on your browser otherwise. 
 
 Alternatively, you can simply visit the site https://giuseppett.shinyapps.io/me812/ (requires login).
+
+### Container
+Finally, if you have access, you can use a docker container to run the analysis/dashboard by running the following commands in the terminal:
+
+```
+docker pull giuseppett/me812
+docker run -ti giuseppett/me812 bash
+```
+
+This will:
+- Download the container from dockerhub.
+- Open it with a bash terminal.
 
 
 ## Structure
@@ -60,5 +72,6 @@ Description of additional resources used in the project:
 Some useful links:
 - drake: https://github.com/ropensci/drake.
 - shiny: https://github.com/rstudio/shiny.
+- docker: https://www.docker.com/.
 - renv: https://github.com/rstudio/renv/.
 - GitHub Actions: https://github.com/features/actions.

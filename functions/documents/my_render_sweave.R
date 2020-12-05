@@ -23,10 +23,13 @@ knit_parametrized <- function(
 remove_corresponding_log <- function(
     file
 ) {
-    file %>%
+    log_file <-
+        file %>%
         fs::path_file() %>%
-        fs::path_ext_set("log") %>%
-        fs::file_delete()
+        fs::path_ext_set("log")
+
+    if (fs::file_exists(log_file))
+        fs::file_delete(log_file)
 }
 
 my_render_sweave <- function(

@@ -69,7 +69,7 @@ Description of additional resources used in the project:
 - ```.github/workflows```: contains the workflows used by GitHub Actions for CI.
 - ```Dockerfile```: defines the docker container used to possibly reproduce the analysis/dashboard.
 
-## Useful Links
+## Useful links
 Some useful links:
 - drake: https://github.com/ropensci/drake.
 - shiny: https://github.com/rstudio/shiny.

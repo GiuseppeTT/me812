@@ -26,7 +26,7 @@ This will:
 - Run the analysis (i.e. clean data, run models, build report and build presentation).
 
 ### Dashboard
-Additionally, you can open the shiny dashboard by running the following commands in the terminal:
+Additionally, you can open the shiny dashboard by running the following command in the terminal:
 
 ```
 make app
@@ -61,6 +61,7 @@ Description of the project structure:
 - ```subplans/```: contains the drake subplans used to build the main drake plan.
 - ```functions/```: contains the functions used in the drake subplans. They usually start with ```my_```.
 - ```shiny/```: contains the ui and server definitions used to define the shiny application.
+- ```documents/```: contains the report and presentation files
 
 Description of additional resources used in the project:
 - ```renv/```, ```renv.lock``` and ```.Rprofile```: are created by renv to setup the virtual environment.
@@ -74,4 +75,6 @@ Some useful links:
 - shiny: https://github.com/rstudio/shiny.
 - docker: https://www.docker.com/.
 - renv: https://github.com/rstudio/renv/.
+- knitr: https://github.com/yihui/knitr.
+- tinytex: https://github.com/yihui/tinytex.
 - GitHub Actions: https://github.com/features/actions.

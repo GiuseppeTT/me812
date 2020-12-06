@@ -18,13 +18,12 @@
 source_directory <- function(
     path,
     ...,
-    assign_to_environment = TRUE,
     environment. = parent.env(environment())
 ) {
     source_environment <- new.env()
-    .source_directory(path, ..., source_environment)
+    .source_directory(path, ..., source_environment = source_environment)
 
-    if (assign_to_environment)
+    if (!is.null(environment.))
         .open_environment(source_environment, to = environment.)
 
     return(invisible(source_environment))

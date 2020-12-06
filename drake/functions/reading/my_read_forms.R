@@ -9,7 +9,7 @@ my_read_forms <- function(country, path_name){
     else{
         path <- "data/forms/angola"
         file <- file.path(path, path_name)
-        var_name <- read_excel(file)
+        var_name <- readxl::read_excel(file)
         var_name$country <- "Angola"
     }
 

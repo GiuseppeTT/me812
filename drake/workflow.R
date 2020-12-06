@@ -4,7 +4,7 @@ source_directory("drake/functions/")
 
 
 # Load workflow subplans -------------------------------------------------------
-subplans <- source_directory("drake/subplans/", assign_to_environment = FALSE)
+subplans <- source_directory("drake/subplans/", environment. = NULL)
 
 
 

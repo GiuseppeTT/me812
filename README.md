@@ -56,29 +56,26 @@ The ```analysis.R``` script is the main entry point. It loads packages, sources 
 
 Description of the project structure:
 - ```analysis.R```: is the main entry point and responsible for running the analysis.
-- ```app.R```: defines the shiny application. You need to run the analysis before using it.
 - ```data/```: is a private repository that contains the raw data.
-- ```subplans/```: contains the drake subplans used to build the main drake plan.
-- ```functions/```: contains the functions used in the drake subplans. They usually start with ```my_```.
+- ```renv/```, ```renv.lock``` and ```.Rprofile```: are created by renv to setup the virtual environment.
+- ```drake/```: contains the drake plan and its functions to run the analysis workflow.
+- ```app.R```: defines the shiny application. You need to run the analysis before using it.
+- ```.Renviron```: defines environment variables and is currently only used to provide credentials to shinyapps.
 - ```shiny/```: contains the ui and server definitions used to define the shiny application.
 - ```documents/```: contains the report and presentation files
 
 Description of additional resources used in the project:
-- ```renv/```, ```renv.lock``` and ```.Rprofile```: are created by renv to setup the virtual environment.
 - ```makefile```: contains a set of useful commands, which can be accessed with ```make <command name>``` in the terminal.
-- ```.github/workflows/```: contains the workflows used by GitHub Actions for CI.
 - ```Dockerfile```: defines the docker container used to possibly reproduce the analysis/dashboard.
-- ```.Renviron```: defines environment variables and is currently only used to provide credentials to shinyapps.
+- ```.github/workflows/```: contains the workflows used by GitHub Actions for CI.
 - ```.gitignore```: defines files and folders that git should ignore.
 - ```.gitmodules```: defines submodules such as ```me812-data``` module linked to ```data/``` folder for the private data.
 
 ## Useful links
 Some useful links:
+- renv: https://github.com/rstudio/renv/.
 - drake: https://github.com/ropensci/drake.
 - shiny: https://github.com/rstudio/shiny.
 - shinyapps: https://www.shinyapps.io/.
 - docker: https://www.docker.com/.
-- renv: https://github.com/rstudio/renv/.
-- knitr: https://github.com/yihui/knitr.
-- tinytex: https://github.com/yihui/tinytex.
 - GitHub Actions: https://github.com/features/actions.

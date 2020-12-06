@@ -1,13 +1,15 @@
-name: Check
+name: Analysis
 
-on: [pull_request, workflow_dispatch]
+on:
+  pull_request:
+  workflow_dispatch:
 
 env:
   RENV_PATHS_ROOT: ~/.local/share/renv
 
 jobs:
   analysis:
-    name: Analysis
+    name: Check analysis
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository

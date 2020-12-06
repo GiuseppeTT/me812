@@ -1,4 +1,4 @@
-# Load workflow functions and subplans -----------------------------------------
+# Load workflow functions ------------------------------------------------------
 source_directory("drake/functions/")
 
 

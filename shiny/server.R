@@ -185,9 +185,9 @@ server <- function(
 
     output$mean_acceptabilities <- renderDataTable({
         mean_acceptabilities %>%
-            mutate(`CI High` = "Infinity") %>%
+            mutate(`CI High` = 5) %>%
             datatable() %>%
-            formatRound(c("Mean Acceptability", "CI Low", "p-value"), 1) %>%
+            formatRound(c("Mean Acceptability", "CI Low"), 1) %>%
             formatRound(c("p-value"), 3)
     })
 

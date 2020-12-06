@@ -1,3 +1,5 @@
+# Load packages ----------------------------------------------------------------
+library(drake)
 library(tidyverse)
 
 library(shiny)
@@ -5,9 +7,13 @@ library(shinythemes)
 library(shinymanager)
 library(DT)
 
-library(drake)
 
+
+# Load ui and server definitions -----------------------------------------------
 source("shiny/ui.R")
 source("shiny/server.R")
 
+
+
+# Create shiny app -------------------------------------------------------------
 shinyApp(ui, server)

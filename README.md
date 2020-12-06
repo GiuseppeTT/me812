@@ -66,7 +66,7 @@ Description of the project structure:
 Description of additional resources used in the project:
 - ```renv/```, ```renv.lock``` and ```.Rprofile```: are created by renv to setup the virtual environment.
 - ```makefile```: contains a set of useful commands, which can be accessed with ```make <command name>``` in the terminal.
-- ```.github/workflows```: contains the workflows used by GitHub Actions for CI.
+- ```.github/workflows/```: contains the workflows used by GitHub Actions for CI.
 - ```Dockerfile```: defines the docker container used to possibly reproduce the analysis/dashboard.
 - ```.Renviron```: defines environment variables and is currently only used to provide credentials to shinyapps.
 - ```.gitignore```: defines files and folders that git should ignore.
@@ -76,6 +76,7 @@ Description of additional resources used in the project:
 Some useful links:
 - drake: https://github.com/ropensci/drake.
 - shiny: https://github.com/rstudio/shiny.
+- shinyapps: https://www.shinyapps.io/.
 - docker: https://www.docker.com/.
 - renv: https://github.com/rstudio/renv/.
 - knitr: https://github.com/yihui/knitr.

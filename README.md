@@ -52,10 +52,10 @@ This will:
 
 
 ## Structure
-The ```main.R``` script is the main entry point. It loads packages, sources functions, builds a drake plan and makes (runs) it. You can run the script by simply executing ```Rscript main.R``` in the terminal.
+The ```analysis.R``` script is the main entry point. It loads packages, sources functions, builds a drake plan and makes (runs) it. You can run the script by simply executing ```Rscript analysis.R``` in the terminal.
 
 Description of the project structure:
-- ```main.R```: is the main entry point and responsible for running the analysis.
+- ```analysis.R```: is the main entry point and responsible for running the analysis.
 - ```app.R```: defines the shiny application. You need to run the analysis before using it.
 - ```data/```: is a private repository that contains the raw data.
 - ```subplans/```: contains the drake subplans used to build the main drake plan.
@@ -68,6 +68,9 @@ Description of additional resources used in the project:
 - ```makefile```: contains a set of useful commands, which can be accessed with ```make <command name>``` in the terminal.
 - ```.github/workflows```: contains the workflows used by GitHub Actions for CI.
 - ```Dockerfile```: defines the docker container used to possibly reproduce the analysis/dashboard.
+- ```.Renviron```: defines environment variables and is currently only used to provide credentials to shinyapps.
+- ```.gitignore```: defines files and folders that git should ignore.
+- ```.gitmodules```: defines submodules such as ```me812-data``` module linked to ```data/``` folder for the private data.
 
 ## Useful links
 Some useful links:

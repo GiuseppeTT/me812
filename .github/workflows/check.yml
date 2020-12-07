@@ -42,5 +42,4 @@ jobs:
         with:
           name: documents
           path: |
-            documents/report/report.pdf
-            documents/presentation/presentation.pdf
+            documents/**/*.pdf

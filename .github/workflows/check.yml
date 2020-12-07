@@ -27,6 +27,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-renv-
 
+      - name: Cache tinytex
+        uses: actions/cache@v2
+        with:
+          path: .tinytex
+          key: ${{ runner.os }}-tinytex-${{ hashFiles('documents/report/') }}-${{ hashFiles('documents/presentation/') }}
+          restore-keys: |
+            ${{ runner.os }}-tinytex-
+
       - name: Install dependencies
         run: |
           sudo apt-get update -y

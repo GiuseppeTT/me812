@@ -2,7 +2,7 @@
 \documentclass{beamer}
 
 % Theme ------------------------------------------------------------------------
-%\usetheme{metropolis}
+\usetheme{metropolis}
 
 % R header ---------------------------------------------------------------------
 <<setup, include = FALSE>>=

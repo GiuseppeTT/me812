@@ -30,7 +30,7 @@ jobs:
       - name: Cache tinytex
         uses: actions/cache@v2
         with:
-          path: .tinytex
+          path: /home/runner/.TinyTeX/
           key: ${{ runner.os }}-tinytex-${{ hashFiles('documents/report/preamble.tex') }}-${{ hashFiles('documents/presentation/preamble.tex') }}
           restore-keys: |
             ${{ runner.os }}-tinytex-

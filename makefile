@@ -6,7 +6,7 @@
 
 dependencies:
 	Rscript -e "renv::restore()"
-	Rscript -e "tryCatch({tinytex::use_tinytex(from = '.tinytex/')}, error = function(e) {unlink('.tinytex/', recursive = TRUE); tinytex::install_tinytex(dir = '.tinytex/')})"
+	Rscript -e "tryCatch({tinytex::use_tinytex(from = '/home/runner/.TinyTeX/')}, error = function(e) {unlink('/home/runner/.TinyTeX/', recursive = TRUE); tinytex::install_tinytex(dir = '/home/runner/.TinyTeX')})"
 
 analysis:
 	Rscript main.R

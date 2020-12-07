@@ -8,5 +8,4 @@ exploratory_analysis_plan <- drake_plan(
     boxplot_order = my_boxplot_order(complete_data),
     barplot_age = my_barplot_age(complete_data),
     barplot_gender = my_barplot_gender(complete_data),
-
 )

@@ -6,7 +6,7 @@
 
 dependencies:
 	Rscript -e "renv::restore()"
-	Rscript -e "tinytex::install_tinytex()"
+	Rscript -e "tinytex::install_tinytex(dir = '.tinytex')"
 
 analysis:
 	Rscript main.R

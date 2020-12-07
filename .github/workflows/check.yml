@@ -30,13 +30,10 @@ jobs:
       - name: Cache tinytex
         uses: actions/cache@v2
         with:
-          path: /home/runner/.TinyTeX/
+          path: ~/.TinyTeX/
           key: ${{ runner.os }}-tinytex-${{ hashFiles('documents/report/preamble.tex') }}-${{ hashFiles('documents/presentation/preamble.tex') }}
           restore-keys: |
             ${{ runner.os }}-tinytex-
-
-#      - name: Setup tmate session
-#        uses: mxschmitt/action-tmate@v3
 
       - name: Install dependencies
         run: |

@@ -27,6 +27,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-renv-
 
+      - name: Cache tinytex
+        uses: actions/cache@v2
+        with:
+          path: ~/.TinyTeX/
+          key: ${{ runner.os }}-tinytex-${{ hashFiles('documents/report/preamble.tex') }}-${{ hashFiles('documents/presentation/preamble.tex') }}
+          restore-keys: |
+            ${{ runner.os }}-tinytex-
+
       - name: Install dependencies
         run: |
           sudo apt-get update -y

@@ -36,3 +36,15 @@ jobs:
       - name: Run analysis
         run: |
           make analysis
+
+      - name: Archive report
+        uses: actions/upload-artifact@v2
+        with:
+          name: report
+          path: documents/report/report.pdf
+
+      - name: Archive presentation
+        uses: actions/upload-artifact@v2
+        with:
+          name: presentation
+          path: documents/presentation/presentation.pdf

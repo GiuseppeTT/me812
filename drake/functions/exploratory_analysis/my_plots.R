@@ -1,5 +1,3 @@
-
-
 my_mean_acceptability_plot <- function(summary_table){
     summary_table %>%
         ggplot(aes(x = adverb_class, y = mean_acceptability)) +
@@ -13,7 +11,7 @@ my_mean_acceptability_plot <- function(summary_table){
         ) +
         theme_bw(base_size = 13) +
         theme(panel.spacing = unit(1, "lines")) %>%
-             return()
+        return()
     }
 
 

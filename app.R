@@ -9,7 +9,7 @@ library(DT)
 
 
 
-# Load ui and server -----------------------------------------------------------
+# Load UI and server -----------------------------------------------------------
 source("shiny/ui.R")
 source("shiny/server.R")
 

@@ -34,3 +34,15 @@ my_summary_table_order <- function(complete_data){
     ungroup() %>%
         return()
 }
+
+my_adverb_table <- function(complete_data) {
+    complete_data %>%
+        select(sentence,order, adverb_class, adverb_level) %>%
+        distinct(.) %>%
+        group_by(adverb_class, adverb_level) %>%
+        mutate(n_order = length(unique(order)), n_frases = length(unique(sentence))) %>%
+        select(-sentence, -order) %>%
+        distinct(.) %>%
+        arrange(adverb_level) %>%
+        return()
+}

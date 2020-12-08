@@ -1,3 +1,4 @@
+# Define general functions -----------------------------------------------------
 .open_environment <- function(
     from,
     to = parent.env(environment())

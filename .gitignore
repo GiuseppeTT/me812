@@ -14,3 +14,4 @@ rsconnect/
 # LaTeX output
 *.log
 *.pdf
+report.tex

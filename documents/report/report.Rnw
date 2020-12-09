@@ -74,33 +74,54 @@ my_kable <- function(
             my_kable(caption = "Ordem hierárquica definida pelo pesquisador, o número de ordens diferentes que o advérbio pode ser colocado na frase e a quantidade de frases que o advérbio foi apresentado.")
          @
          
-        <<barplot_age, fig.cap = "Quantidade de indivíduos, unindo Moçambique e Angola, que responderam ao questionário por faixa etária.">>=
-        readd(barplot_age)
-        @
-        
-        <<barplot_gender, fig.cap = "Quantidade de indivíduos, do sexo masculino e do feminino por país.">>=
-        readd(barplot_gender)
-        @
+        \begin{figure}[H]
+            <<fig=TRUE, out.width='4in'>>=
+                readd(barplot_age)
+            @
+            \caption{Quantidade de indivíduos, unindo Moçambique e Angola, que responderam ao questionário por faixa etária.}
+            \label{fig:barplot_age}
+        \end{figure}
+         
+
+        \begin{figure}[H]
+            <<fig=TRUE, out.width='4in'>>=
+                readd(barplot_gender)
+            @
+            \caption{Quantidade de indivíduos, do sexo masculino e do feminino por país.}
+            \label{fig:barplot_gender}
+        \end{figure}
         
 
     \section{Análise exploratória} \label{sec:analise_exploratoria}
     
         Segundo o pesquisador havia a expectativa de uma existência hierárquica rígida de advérbios (Tabela \ref{tab:adverb_class}), onde vemos os níveis dos advérbios e quantas vezes o mesmo foi apresentado nos questionários. “Frequentative II” representa o menor nível de complexidade e deveria apresentar o maior nível médio de aceitabilidade, e “Speechact” o menor. Com a Figura \ref{fig:mean_acceptability_plot}, vemos que aparentemente não há uma ordem rígida de aceitabilidade para os diversos advérbios em ambos os países. 
-    
-        <<mean_acceptability_plot, fig.cap = "Gráficos separados por forma verbal e país. O eixo Y, representa as classes dos advérbios ordenados e o eixo X o nível médio de aceitabilidade das sentenças baseado na escala likert.">>=
-            readd(mean_acceptability_plot)
-        @
+        
+        \begin{figure}[H]
+            <<fig=TRUE, fig.height=8>>=
+                readd(mean_acceptability_plot)
+            @
+            \caption{Gráficos separados por forma verbal e país. O eixo Y, representa as classes dos advérbios ordenados e o eixo X o nível médio de aceitabilidade das sentenças baseado na escala likert.}
+            \label{fig:mean_acceptability_plot}
+        \end{figure}
         
         Pela Figura \ref{fig:boxplot_verbform}, temos a aceitabilidade entre os países e formas verbais, visualmente nota-se que não há diferença na aceitabilidade comparando Moçambique e Angola. A Figura \ref{fig:boxplot_order} ilustra como se comporta a aceitabilidade entre as diferentes ordens de sentença.  
         Desconsiderando a ordem LP (desconhecida pelo pesquisador), vemos A-N-V-O apresentando a maior mediana de aceitabilidade, logo após esta a ordem N-V-A-O , e a que apresenta menor mediana de aceitabilidade é V-O-N-A.
         
-        <<boxplot_verbform, fig.cap = "Diagrama de caixas comparando a aceitabilidade da forma verbal por país.">>=
-            readd(boxplot_verbform)
-        @
+        \begin{figure}[H]
+            <<fig=TRUE, out.width='4in'>>=
+                readd(boxplot_verbform)
+            @
+            \caption{Diagrama de caixas comparando a aceitabilidade da forma verbal por país.}
+            \label{fig:boxplot_verbform}
+        \end{figure}
         
-        <<boxplot_order, fig.cap = "Diagrama de caixas comparando a aceitabilidade das ordens das sentenças.">>=
-            readd(boxplot_order)
-        @
+        \begin{figure}[H]
+            <<fig=TRUE, out.width='4in'>>=
+                readd(boxplot_order)
+            @
+            \caption{Diagrama de caixas comparando a aceitabilidade das ordens das sentenças.}
+            \label{fig:boxplot_order}
+        \end{figure}
 
     \section{Metodologia} \label{sec:metodologia}
     
@@ -131,7 +152,7 @@ Para manipulação dos dados, modelagem e realização dos testes estatísticos 
 
     \section{Resultados} \label{sec:resultados}
     
-        A Tabela \ref{tab:efeito_anova}, resume os resultados obtidos das ANOVAs simultâneas. Ela lista as estimativas do efeito Moçambique em relação a Angola na aceitabilidade média de cada frase (combinação advérbio-verbo-ordem). Devido ao espaço, ela contém apenas as 10 frases de menor p-valor. No caso, o p-valor foi ajustado segundo o método de Holm e os intervalos de confiança com Bonferroni (nível de significância de 5\% adotado). A tabela mostra que apenas 6 combinações apresentaram efeito significativo. Por fim, a Figura \ref{fig:residue_plot} representa o gráfico quantil-quantil dos resíduos do modelo ajustado. Perceba como os resíduos apresentam leves desvios sistemáticos da normal, que se concentram nas caudas. Ainda, esses desvios não fogem muito da região de confiança (sombreamento). Logo, pode-se afirmar que o modelo foi bem ajustado aos dados
+        A Tabela \ref{tab:efeito_anova}, resume os resultados obtidos das ANOVAs simultâneas. Ela lista as estimativas do efeito Moçambique em relação a Angola na aceitabilidade média de cada frase (combinação advérbio-verbo-ordem). Devido ao espaço, ela contém apenas as 10 frases de menor p-valor. No caso, o p-valor foi ajustado segundo o método de Holm e os intervalos de confiança com Bonferroni (nível de significância de 5\% adotado). A tabela mostra que apenas 6 combinações apresentaram efeito significativo. Por fim, a Figura \ref{fig:residue_plot} representa o gráfico quantil-quantil dos resíduos do modelo ajustado. Perceba como os resíduos apresentam leves desvios sistemáticos da normal, que se concentram nas caudas. Ainda, esses desvios não fogem muito da região de confiança (sombreamento). Logo, pode-se afirmar que o modelo foi bem ajustado aos dados.
 
 
          <<efeito_anova>>=
@@ -151,10 +172,14 @@ Para manipulação dos dados, modelagem e realização dos testes estatísticos 
            head(10) %>%
    my_kable(caption = "Resultados das ANOVAs simultâneas. Aqui é listado apenas as 10 frases (combinação advérbio-verbo-ordem) de menor p-valor. O p-valor foi ajustado segundo o método de Holm e os intervalos de confiança com Bonferroni, com um nível de significância de 5\\%.")
          @
-
-        <<residue_plot, fig.cap = "Gráfico quantil-quantil dos resíduos do modelo de ANOVAs simultâneas.">>=
-        readd(residue_plot)
-        @
+         
+        \begin{figure}[H]
+            <<fig=TRUE, out.width='4in'>>=
+                readd(residue_plot)
+            @
+            \caption{Gráfico quantil-quantil dos resíduos do modelo de ANOVAs simultâneas.}
+            \label{fig:residue_plot}
+        \end{figure}
     
     
     \section{Conclusões} \label{sec:conclusao}

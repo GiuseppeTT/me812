@@ -12,8 +12,8 @@ my_mean_acceptability_plot <- function(summary_table){
         scale_y_continuous(limits = c(0, 5), expand = c(0, 0)) +
         coord_flip() +
         labs(
-            x = "Adverb class",
-            y = "Acceptability"
+            x = "Classe adverbial",
+            y = "Aceitabilidade"
         ) +
         theme_bw() +
         theme(panel.spacing = unit(1, "lines")) %>%
@@ -60,7 +60,7 @@ my_barplot_age<- function(complete_data){
         count() %>%
         ggplot(aes(x = age, y = n)) +
         geom_bar(stat = "identity") +
-        geom_text(aes(label = n ), vjust=-0.25, color = "black")  +
+        geom_text(aes(label = n ), vjust=-0.25, color = "gray")  +
         labs(
             y = "Frequência",
             x = "Faixa Etária"
@@ -77,7 +77,7 @@ my_barplot_gender <- function(complete_data){
         ggplot(aes(x = gender, y = n)) +
         geom_bar(stat = "identity",position = 'dodge') +
         facet_grid(cols = vars(country)) +
-        geom_text(aes(label = n ), vjust= -0.25, color = "black") +
+        geom_text(aes(label = n ), vjust= -0.25, color = "gray") +
         labs(
             y = "Frequência",
             x = "Gênero"

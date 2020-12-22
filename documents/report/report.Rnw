@@ -67,7 +67,22 @@ my_kable <- function(
 
     \section{Experimento e banco de dados} \label{sec:experimeto}
     
-        A partir de um conjunto de 32 advérbios dispostos em uma rígida hierarquia universal \citep{cinque}, veja Tabela \ref{tab:adverb_class}, e com as formas verbais finito, gerúndio, particípio passado ativo, passivo e infinitivo testou se há diferença entre as seguintes ordens: 1) Advérbio - objeto - verbo (AOV); 2) Advérbio - verbo - objeto (AVO); 3) Verbo - advérbio - objeto (VAO); 4) Verbo - objeto - advérbio (VOA); 5) Verbo - objeto, advérbio (VO,A) (a diferença entre 4 e 5 é a vírgula que é uma pausa na sentença); 6) Verbo - objeto - negativa - advérbio (VONA); 7) Verbo - negativa - advérbio - objeto (VNAO); 8) Negativa - verbo - objeto - advérbio (NVOA); 9) Negativa - verbo - advérbio - objeto (NVAO); 10) Negativa - advérbio - verbo - objeto (NAVO); 11) Advérbio - negativa - verbo - objeto (ANVO); 12) LP (desconhecida pelo pesquisador).
+        A partir de um conjunto de 32 advérbios dispostos em uma rígida hierarquia universal \citep{cinque}, veja Tabela \ref{tab:adverb_class}, e com as formas verbais finito, gerúndio, particípio passado ativo, passivo e infinitivo testou se há diferença entre as seguintes ordens: 
+        
+        \begin{enumerate}
+           \item Advérbio - objeto - verbo (AOV);
+           \item Advérbio - verbo - objeto (AVO);
+           \item Verbo - advérbio - objeto (VAO);
+           \item Verbo - objeto - advérbio (VOA);
+           \item Verbo - objeto, advérbio (VO,A) (a diferença entre 4 e 5 é a vírgula que é uma pausa na sentença);
+           \item Verbo - objeto - negativa - advérbio (VONA);
+           \item Verbo - negativa - advérbio - objeto (VNAO);
+           \item Negativa - verbo - objeto - advérbio (NVOA);
+           \item Negativa - verbo - advérbio - objeto (NVAO);
+           \item Negativa - advérbio - verbo - objeto (NAVO);
+           \item Advérbio - negativa - verbo - objeto (ANVO);
+           \item LP (desconhecida pelo pesquisador).
+         \end{enumerate}
         
         Para determinar a posição do verbo e verificar a aceitabilidade dessas frases nos dois países, foram elaborados questionários contendo frases nas ordens citadas acima e os questionários foram representados através de áudios gravados por nativos das duas regiões. O público alvo desse estudo foi indivíduos nativos  de Angola e Moçambique, que tiveram que escutar os áudios e classificar as sentenças com base numa escala likert variando de 1 (muito mal formada) até 5 (muito bem formada).
         
@@ -141,7 +156,7 @@ my_kable <- function(
         
         O método Holm-Bonferroni, é usado para neutralizar o problema de comparações múltiplas, sua utilidade é controlar a taxa do erro tipo 1, rejeitar a hipótese nula quando verdadeira, e oferece um teste simples uniformemente mais poderoso do que a correção de Bonferroni. A abordagem, ordena os p valores de ordem crescente e compara com os níveis alfa ($\frac{\alpha}{n}$, $\frac{\alpha}{n-1}$, $...$ , $\alpha/1$), caso nenhum valor de p for baixo o suficiente para rejeição, nenhuma hipótese nula será rejeitada.
         
-        Por fim, todos os números maiores que 1 foram aproximados para duas casas decimais e todos os menores ou iguais a 1 para quatro casas decimais. Portanto, alguns valores são retratados como zero.
+        %Por fim, todos os números maiores que 1 foram aproximados para duas casas decimais e todos os menores ou iguais a 1 para quatro casas decimais. Portanto, alguns valores são retratados como zero.
         
 Para manipulação dos dados, modelagem e realização dos testes estatísticos foi utilizado o software R \citep{R}.
         
@@ -168,7 +183,7 @@ Para manipulação dos dados, modelagem e realização dos testes estatísticos 
     
         Os resultados obtidos das ANOVAs simultâneas pode ser visto na Tabela \ref{tab:efeito_anova}. Ela lista as estimativas do efeito Moçambique em relação a Angola na aceitabilidade média de cada frase (combinação advérbio-verbo-ordem). Devido ao espaço, ela contém apenas as 10 frases de menor p-valor. No caso, o p-valor foi ajustado segundo o método de Holm e os intervalos de confiança com Bonferroni (nível de significância de 5\% adotado). A Tabela \ref{tab:efeito_anova} mostra que apenas 6 combinações apresentaram efeito significativo. Por fim, a Figura \ref{fig:residue_plot} representa o gráfico quantil-quantil dos resíduos do modelo ajustado. Perceba como os resíduos apresentam leves desvios sistemáticos da normal, que se concentram nas caudas. Ainda, esses desvios não fogem muito da região de confiança (sombreamento). Logo, pode-se afirmar que o modelo foi bem ajustado aos dados.
         
-                 
+        
          <<efeito_anova>>=
          readd(anova_results) %>% 
             arrange(`p-value`) %>% 
@@ -181,7 +196,8 @@ Para manipulação dos dados, modelagem e realização dos testes estatísticos 
                     "p-valor" = "p-value")) %>%
             select(-`CI Low`, -`CI High`) %>%
             head(10) %>%
-            my_kable(caption = "Lista das frases com o menor p-valor, ajustado segundo o critério de Holm, e intervalo de confiança por Bonferroni, segundo combinação advérbio-verbo-ordem. O Efeito Moçambique é o incremento na aceitabilidade  do indivíduo pertencer a este país.")
+            my_kable(caption = "Lista das frases com o menor p-valor, ajustado segundo o critério de Holm, e intervalo de confiança por Bonferroni, segundo combinação advérbio-verbo-ordem. O Efeito Moçambique é o incremento na aceitabilidade  do indivíduo pertencer a este país.") %>%
+            kableExtra::kable_styling(latex_options = "HOLD_position")
          @
          
          

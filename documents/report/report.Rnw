@@ -122,7 +122,7 @@ my_kable <- function(
         Segundo o pesquisador havia a expectativa de uma existência hierárquica rígida de advérbios (Tabela \ref{tab:adverb_class}), onde vemos os níveis dos advérbios e quantas vezes o mesmo foi apresentado nos questionários. “Frequentative II” representa o menor nível de complexidade e deveria apresentar o maior nível médio de aceitabilidade, e “Speechact” o menor. Na Figura \ref{fig:mean_acceptability_plot}, vemos que aparentemente não há uma ordem rígida de aceitabilidade, pois alguns adverbios em que era de se esperar uma aceitabilidade maior possuem mesmo nível de complexibilidade daqueles de maior nível.
         
         \begin{figure}[H]
-            <<fig=TRUE, fig.height=8>>=
+            <<fig=TRUE, fig.height=10>>=
                 readd(mean_acceptability_plot)
             @
             \caption{Gráficos separados por forma verbal e país. O eixo Y, representa as classes dos advérbios ordenados e o eixo X o nível médio com o intervalo de confiança de aceitabilidade das sentenças baseado na escala likert.}

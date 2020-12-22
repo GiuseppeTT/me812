@@ -84,7 +84,7 @@ my_plot_qq_residue <- function(
                 x = "Amostra",
                 y = "Teórico"
             ) +
-            theme_bw()
+            theme_bw(base_size = 13)
 
     return(residue_plot)
 }

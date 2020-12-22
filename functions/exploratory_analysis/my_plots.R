@@ -15,7 +15,7 @@ my_mean_acceptability_plot <- function(summary_table){
             x = "Classe adverbial",
             y = "Aceitabilidade"
         ) +
-        theme_bw() +
+        theme_bw(base_size = 13) +
         theme(panel.spacing = unit(1, "lines")) %>%
              return()
     }
@@ -34,7 +34,7 @@ my_boxplot_verbform <- function(complete_data){
             y = "Aceitabilidade",
             color = "País"
         ) +
-        theme_bw()  %>%
+        theme_bw(base_size = 13)  %>%
         return()
 }
 
@@ -48,7 +48,7 @@ my_boxplot_order <- function(complete_data){
             x = "Ordem",
             y = "Aceitabilidade"
         ) +
-        theme_bw() %>%
+        theme_bw(base_size = 13) %>%
         return()
 }
 
@@ -65,7 +65,7 @@ my_barplot_age<- function(complete_data){
             y = "Frequência",
             x = "Faixa Etária"
         ) +
-        theme_bw() %>%
+    theme_bw(base_size = 13) %>%
         return()
 }
 
@@ -82,7 +82,7 @@ my_barplot_gender <- function(complete_data){
             y = "Frequência",
             x = "Gênero"
         ) +
-        theme_bw() %>%
+        theme_bw(base_size = 13) %>%
         return()
 }
 

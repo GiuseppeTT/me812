@@ -209,8 +209,8 @@ Para manipulação dos dados, modelagem e realização dos testes estatísticos 
             \caption{Gráfico quantil-quantil dos resíduos do modelo de ANOVAs simultâneas.}
             \label{fig:residue_plot}
         \end{figure}
-    
-    
+        
+        Os resultados podem ser acessados na integra em um dashboard disponível no endereço \url{https://giuseppett.shinyapps.io/me812/}.
     \section{Conclusões} \label{sec:conclusao}
     
             Assim, nota-se que há uma diferença estatisticamente significativa entre o português dos dois países. Devido a má qualidade da ordem de advérbios sugerida, só foi possível inferir resultados de forma individual para cada frase. Além disso, devido a grande quantidade de testes, foi preciso aplicar métodos de correção de inflação p-valor que limitaram o poder da análise. Apenas 6 frases apresentaram efeitos estatisticamente significativos. O grupo de consultoria deixa a dever do pesquisador a interpretação desses resultados, visto que é necessário um conhecimento de linguística para obter conclusões que possuam, não apenas embasamento estatístico, mas também científico.

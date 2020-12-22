@@ -187,7 +187,7 @@ server <- function(
         mean_acceptabilities %>%
             mutate(`CI High` = "Infinity") %>%
             datatable() %>%
-            formatRound(c("Mean Acceptability", "CI Low", "p-value"), 2) %>%
+            formatRound(c("Mean Acceptability", "CI Low", "p-value"), 1) %>%
             formatRound(c("p-value"), 3)
     })
 
@@ -199,7 +199,7 @@ server <- function(
     output$anova_results <- renderDataTable({
         anova_results %>%
             datatable() %>%
-            formatRound(c("Estimate", "CI Low", "CI High"), 2) %>%
+            formatRound(c("Estimate", "CI Low", "CI High"), 1) %>%
             formatRound(c("p-value", "q-value"), 3)
     })
 }

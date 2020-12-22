@@ -45,6 +45,11 @@ my_kable <- function(
     % Body ---------------------------------------------------------------------
     \newpage
     
+    \begin{abstract}
+        O projeto tem como intuito identificar se existe diferenças entre o português de Angola e Moçambique a partir da estrutura gramatical de algumas sentenças pré-definidas. A partir dos dados coletados pelo pesquisador, de maneira não estruturada, foi possível aplicar a metodologia de anova simultânea, após algumas análises percebeu-se, desconsiderando alguns viéses, que há diferenças estatitisticamente significantes, ou seja que dão suporte a ideia de empoderamento gramatical destes países. Seria interessante para o pesquisador, que em futuras pesquisas seja feito um planejamento estatístico para a coleta de dados controlando problemas relacionados a viéses e dependencia.
+    \end{abstract}
+    
+    
     \section{Descobertas} \label{sec:descobertas}
     
         Após a análise dos dados há alguns poréns que devem ser levados em conta devido ao planejamento da pesquisa. O primeiro ponto notado foi a falta de aleatoriedade das perguntas em cada questionário, ou seja, perguntas bem semelhantes umas às outras, o que pode ter levado ao indivíduo responder a frase que estava “menos pior” de um conjunto de sentenças. Além disso, os participantes da pesquisa não foram aleatorizados e, assim, há um possível efeito de bloco visto que os questionários foram respondidos por indivíduos da mesma sala.
@@ -164,7 +169,7 @@ Para manipulação dos dados, modelagem e realização dos testes estatísticos 
         Os resultados obtidos das ANOVAs simultâneas pode ser visto na Tabela \ref{tab:efeito_anova}. Ela lista as estimativas do efeito Moçambique em relação a Angola na aceitabilidade média de cada frase (combinação advérbio-verbo-ordem). Devido ao espaço, ela contém apenas as 10 frases de menor p-valor. No caso, o p-valor foi ajustado segundo o método de Holm e os intervalos de confiança com Bonferroni (nível de significância de 5\% adotado). A Tabela \ref{tab:efeito_anova} mostra que apenas 6 combinações apresentaram efeito significativo. Por fim, a Figura \ref{fig:residue_plot} representa o gráfico quantil-quantil dos resíduos do modelo ajustado. Perceba como os resíduos apresentam leves desvios sistemáticos da normal, que se concentram nas caudas. Ainda, esses desvios não fogem muito da região de confiança (sombreamento). Logo, pode-se afirmar que o modelo foi bem ajustado aos dados.
         
                  
-         <<qaasw>>=
+         <<efeito_anova>>=
          readd(anova_results) %>% 
             arrange(`p-value`) %>% 
             mutate(Estimate = round(Estimate,2),
@@ -181,25 +186,6 @@ Para manipulação dos dados, modelagem e realização dos testes estatísticos 
          
          
          
-         <<efeito_anova>>=
-         readd(anova_results) %>% 
-           arrange(`p-value`) %>% 
-           mutate(`CI Low` = round(`CI Low`,2),
-                  `CI High` = round(`CI High`,2),
-                  Estimate = round(Estimate,2),
-                  `p-value` = round(`p-value`,3)) %>%
-           rename(c("Classe adverbial" = "Adverb Class",
-                    "Forma verbal" = "Verb Form",
-                    Ordem = Order,
-                    "Efeito Moçambique" = Estimate,
-                    "IC inferior" = "CI Low",
-                    "IC superior" = "CI High",
-                    "p-valor" = "p-value")) %>%
-           head(10) %>%
-   my_kable(caption = "Lista das frases com o menor p-valor, ajustado segundo o critério de Holm, e intervalo de confiança por Bonferroni, segundo combinação advérbio-verbo-ordem.")
-         @
-         
-         
         \begin{figure}[H]
             <<fig=TRUE, out.width='4in'>>=
                 readd(residue_plot)
@@ -211,7 +197,7 @@ Para manipulação dos dados, modelagem e realização dos testes estatísticos 
     
     \section{Conclusões} \label{sec:conclusao}
     
-        Assim, nota-se que há uma diferença estatisticamente significativa entre o português dos dois países. Devido a má qualidade da ordem de advérbios sugerida, só foi possível inferir resultados de forma individual para cada frase. Além disso, devido a grande quantidade de testes, foi preciso aplicar métodos de correção de inflação p-valor que limitaram o poder da análise. Apenas 6 frases apresentaram efeitos estatisticamente significativos. O grupo de consultoria deixa a dever do pesquisador a interpretação desses resultados, visto que é necessário um conhecimento de linguística para obter conclusões que possuam, não apenas embasamento estatístico, mas também científico.
+            Assim, nota-se que há uma diferença estatisticamente significativa entre o português dos dois países. Devido a má qualidade da ordem de advérbios sugerida, só foi possível inferir resultados de forma individual para cada frase. Além disso, devido a grande quantidade de testes, foi preciso aplicar métodos de correção de inflação p-valor que limitaram o poder da análise. Apenas 6 frases apresentaram efeitos estatisticamente significativos. O grupo de consultoria deixa a dever do pesquisador a interpretação desses resultados, visto que é necessário um conhecimento de linguística para obter conclusões que possuam, não apenas embasamento estatístico, mas também científico.
 
 
     % Bibliography -----------------------------------------------------------------

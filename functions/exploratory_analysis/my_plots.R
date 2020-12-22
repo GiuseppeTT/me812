@@ -60,7 +60,7 @@ my_barplot_age<- function(complete_data){
         count() %>%
         ggplot(aes(x = age, y = n)) +
         geom_bar(stat = "identity") +
-        geom_text(aes(label = n ), vjust=-0.25, color = "gray")  +
+        geom_text(aes(label = n ), vjust=-0.25, color = "grey21")  +
         labs(
             y = "Frequência",
             x = "Faixa Etária"
@@ -77,7 +77,7 @@ my_barplot_gender <- function(complete_data){
         ggplot(aes(x = gender, y = n)) +
         geom_bar(stat = "identity",position = 'dodge') +
         facet_grid(cols = vars(country)) +
-        geom_text(aes(label = n ), vjust= -0.25, color = "gray") +
+        geom_text(aes(label = n ), vjust= -0.25, color = "gray21") +
         labs(
             y = "Frequência",
             x = "Gênero"

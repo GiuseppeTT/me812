@@ -185,6 +185,12 @@ readd(residue_plot) + GG_THEME
 @
         \end{frame}
 
+        \begin{frame}{Extras:}
+            \begin{itemize}
+                \item \textbf{GitHub:} \href{https://github.com/GiuseppeTT/me812}{github.com/GiuseppeTT/me812}
+                \item \textbf{shinyapps:} \href{https://giuseppett.shinyapps.io/me812/}{giuseppett.shinyapps.io/me812}
+            \end{itemize}
+        \end{frame}
 
   \section{Considerações e Conclusão}
         \begin{frame}{Conclusão}
@@ -192,7 +198,9 @@ readd(residue_plot) + GG_THEME
                 \item \textbf{Considerações:}
                 \begin{itemize}
                     \item Falta de aleatoriedade no questionário e participantes
-                    \item Poder da análise limitado (correção de p-valor)
+                    \item Poder da análise limitado (cerca de 200 participantes e 900 ``tratamentos'')
+                    \item Questionário exaustivo (em média 100 perguntas, chegando até 200)
+                    \item Teoria liguistica com poucas evidências
                 \end{itemize}
                 \item \textbf{Conclusões:}
                 \begin{itemize}

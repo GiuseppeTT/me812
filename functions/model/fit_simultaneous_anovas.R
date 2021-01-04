@@ -81,10 +81,10 @@ my_plot_qq_residue <- function(
             qqplotr::stat_qq_line() +
             qqplotr::stat_qq_point() +
             labs(
-                x = "Sample",
-                y = "Theorical"
+                x = "Amostra",
+                y = "Teórico"
             ) +
-            theme_bw()
+            theme_bw(base_size = 13)
 
     return(residue_plot)
 }

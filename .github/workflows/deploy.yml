@@ -50,4 +50,4 @@ jobs:
           # shinyapps doesn't work with renv
           rm .Rprofile
           Rscript -e "source('renv/activate.R');rsconnect::setAccountInfo(name = '${{ secrets.SHINYAPPS_NAME }}', token = '${{ secrets.SHINYAPPS_TOKEN }}', secret = '${{ secrets.SHINYAPPS_SECRET }}')"
-          Rscript -e "source('renv/activate.R');rsconnect::deployApp()"
+          Rscript -e "source('renv/activate.R');options(repos = BiocManager::repositories());rsconnect::deployApp()"

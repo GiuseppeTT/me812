@@ -4,10 +4,6 @@ my_mean_acceptability_plot <- function(summary_table){
     summary_table %>%
         ggplot(aes(x = adverb_class, y = mean_acceptability)) +
         geom_col() +
-        geom_errorbar(aes(
-            ymin = mean_acceptability - sd_acceptability / sqrt(n),
-            ymax = mean_acceptability + sd_acceptability / sqrt(n)
-    )) +
         facet_grid(vars(country), vars(verb_form)) +
         scale_y_continuous(limits = c(0, 5), expand = c(0, 0)) +
         coord_flip() +
@@ -58,12 +54,13 @@ my_barplot_age<- function(complete_data){
         distinct(id,.keep_all = T) %>%
         group_by(age) %>%
         count() %>%
+        mutate(age = str_remove_all(age, " anos")) %>%
         ggplot(aes(x = age, y = n)) +
         geom_bar(stat = "identity") +
         geom_text(aes(label = n ), vjust=-0.25, color = "grey21")  +
         labs(
             y = "Frequência",
-            x = "Faixa Etária"
+            x = "Faixa Etária (anos)"
         ) +
     theme_bw(base_size = 13) %>%
         return()

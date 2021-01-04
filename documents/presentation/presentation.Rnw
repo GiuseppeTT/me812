@@ -10,8 +10,8 @@ knitr::opts_chunk$set(
     echo = FALSE,
     fig.align = "center",
     fig.path = tempdir(),
-    fig.width = 10,
-    fig.height = 6,
+    fig.width = 6,
+    fig.height = 4,
     fig.pos = "ht",
     out.width = "100%",
     warning = FALSE
@@ -39,9 +39,14 @@ my_kable <- function(
 }
 @
 
+<<constants, include = FALSE>>=
+GG_THEME <- theme(plot.background = element_rect(fill = "transparent", color = NA))
+@
+
+
 % Meta information -------------------------------------------------------------
 \title{Trabalho Final - Consultoria Estatística ME712/812}
-\subtitle{Análise estatística de línguas Lusófanas}
+\subtitle{Análise estatística de línguas lusófanas}
 \author{
     Giuseppe T. Tomio
     \and
@@ -101,20 +106,44 @@ my_kable <- function(
 
     \section{Análise Exploratória}
         \begin{frame}{Classe dos Advérbios}
-<<mean_acceptability_plot>>=
-readd(mean_acceptability_plot)
+<<angola_acceptability_plot, out.height="90%", out.width=NULL, fig.height=7, fig.width=10>>=
+p <- readd(mean_acceptability_plot)
+angola_acceptability <-
+  p %>%
+  magrittr::extract2("data") %>%
+  filter(country == "Angola")
+
+p <- p %+% angola_acceptability
+p <- p + GG_THEME
+
+p
+@
+        \end{frame}
+
+        \begin{frame}{Classe dos Advérbios}
+<<mozambique_acceptability_plot, out.height="90%", out.width=NULL, fig.height=7, fig.width=10>>=
+p <- readd(mean_acceptability_plot)
+mozambique_acceptability <-
+  p %>%
+  magrittr::extract2("data") %>%
+  filter(country == "Mozambique")
+
+p <- p %+% mozambique_acceptability
+p <- p + GG_THEME
+
+p
 @
         \end{frame}
 
        \begin{frame}{Forma Verbal}
 <<boxplot_verbform>>=
-readd(boxplot_verbform)
+readd(boxplot_verbform) + GG_THEME
 @
         \end{frame}
 
   \begin{frame}{Ordem}
 <<boxplot_order>>=
-readd(boxplot_order)
+readd(boxplot_order) + GG_THEME
 @
         \end{frame}
 
@@ -124,7 +153,7 @@ readd(boxplot_order)
             \begin{itemize}
                 \item Dependência
                 \item ANOVA Mista
-                \item ANOVAS Simultâneas
+                \item ANOVAs Simultâneas
                 \item Método de Holm
             \end{itemize}
         \end{frame}
@@ -138,31 +167,21 @@ y_{i, j} = \beta_{0, j} + \beta_{1, j} x_{i, j} + \epsilon_{i, j} , \\
             \end{equation*}
         \end{frame}
 
-        \begin{frame}{ANOVAS Simultâneas}
-            \begin{equation*}
-                \begin{gathered}
-y_{i, t} = \beta_{0, t} + \beta_{1, t} x_{i, 1} + \beta_{2, t} x_{i, 2} + \epsilon_{i, t} , \\
-\{ \epsilon_{i, t} \}_i \iid \Normal(0, \sigma_{\epsilon, t}^2 ) \text{ para cada } t
-                \end{gathered}
-            \end{equation*}
-        \end{frame}
-
-
     \section{Resultados}
-         \begin{frame}{Resultados das ANOVAS Simultâneas:}
+         \begin{frame}{Resultados das ANOVAs Simultâneas:}
 <<anova_results>>=
 readd(anova_results) %>%
     arrange(`p-value`) %>%
     mutate(Estimate = round(Estimate,2), `p-value` = round(`p-value`,3)) %>%
     rename(c("Classe adverbial" = "Adverb Class", "Forma verbal" = "Verb Form", Ordem = Order, "Efeito Moçambique" = Estimate, "p-valor" = "p-value")) %>%
-    select(-`CI Low`, -`CI High`) %>% head(10) %>% my_kable(caption = "Lista das frases com o menor p-valor, ajustado segundo o critério de Holm, e intervalo de confiança por Bonferroni, segundo combinação advérbio-verbo-ordem. O Efeito Moçambique é o incremento na aceitabilidade do indivíduo pertencer a este país.") %>%
-    kableExtra::kable_styling(latex_options="HOLD_position",font_size = 7)
+    select(-`CI Low`, -`CI High`) %>% head(10) %>% my_kable() %>%
+    kableExtra::kable_styling(latex_options="HOLD_position",font_size = 9)
 @
         \end{frame}
 
       \begin{frame}{Gráfico Quantil-Quantil dos Resíduos:}
 <<residue_plot>>=
-readd(residue_plot)
+readd(residue_plot) + GG_THEME
 @
         \end{frame}
 
@@ -172,8 +191,7 @@ readd(residue_plot)
             \begin{itemize}
                 \item \textbf{Considerações:}
                 \begin{itemize}
-                    \item Falta de aleatoriedade no questionário
-                    \item Não houve aleatorização dos participantes da pesquisa
+                    \item Falta de aleatoriedade no questionário e participantes
                     \item Poder da análise limitado (correção de p-valor)
                 \end{itemize}
                 \item \textbf{Conclusões:}

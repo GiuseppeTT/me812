@@ -159,12 +159,23 @@ readd(boxplot_order) + GG_THEME
         \end{frame}
 
         \begin{frame}{ANOVAS Simultâneas}
+            Uma anova para cada frase (índice $j$)
+
             \begin{equation*}
                 \begin{gathered}
 y_{i, j} = \beta_{0, j} + \beta_{1, j} x_{i, j} + \epsilon_{i, j} , \\
 \text{com } \epsilon_{i, j} \sim \Normal(0, \sigma_{j}) \text{ e } \{ \epsilon_{i, j} \}_{i} \text{ independentes para cada } j
                 \end{gathered}
             \end{equation*}
+        \end{frame}
+
+        \begin{frame}{Método de Holm}
+            \begin{itemize}
+                \item Corrige inflação de p-valores
+                \item Não assume uma estrutura de dependencia específica
+                \item Uniformemente mais poderoso do que a correção de Bonferroni
+                \item Simples: orderne os $n$ p-valores e aplique Bonferronis sequencialmente usando os respectivos níveis $\left(\frac{\alpha}{n}, \frac{\alpha}{n-1}, \ldots, \frac{\alpha}{1}\right)$
+            \end{itemize}
         \end{frame}
 
     \section{Resultados}

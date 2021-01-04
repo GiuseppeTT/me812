@@ -154,7 +154,7 @@ my_kable <- function(
 
         Nesta metodologia é assumido um nível de significância de cinco por cento ($\alpha=5\%$). Além disso, dentro de cada tabela apresentada, não apresentadas nesse relatório, é aplicado o método de Holm para correção de inflação dos p-valores.
 
-        O método Holm-Bonferroni, é usado para neutralizar o problema de comparações múltiplas, sua utilidade é controlar a taxa do erro tipo 1, rejeitar a hipótese nula quando verdadeira, e oferece um teste simples uniformemente mais poderoso do que a correção de Bonferroni. A abordagem, ordena os p valores de ordem crescente e compara com os níveis alfa ($\frac{\alpha}{n}$, $\frac{\alpha}{n-1}$, $...$ , $\alpha/1$), caso nenhum valor de p for baixo o suficiente para rejeição, nenhuma hipótese nula será rejeitada.
+        O método Holm-Bonferroni, é usado para neutralizar o problema de comparações múltiplas, sua utilidade é controlar a taxa do erro tipo 1, rejeitar a hipótese nula quando verdadeira, e oferece um teste simples uniformemente mais poderoso do que a correção de Bonferroni. A abordagem, ordena os p valores de ordem crescente e compara com os níveis alfa $\left(\frac{\alpha}{n}, \frac{\alpha}{n-1}, \ldots, \frac{\alpha}{1}\right)$, caso nenhum valor de p for baixo o suficiente para rejeição, nenhuma hipótese nula será rejeitada.
 
         %Por fim, todos os números maiores que 1 foram aproximados para duas casas decimais e todos os menores ou iguais a 1 para quatro casas decimais. Portanto, alguns valores são retratados como zero.
 

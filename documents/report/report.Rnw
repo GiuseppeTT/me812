@@ -194,7 +194,7 @@ Para manipulação dos dados, modelagem e realização dos testes estatísticos 
                     Ordem = Order,
                     "Efeito Moçambique" = Estimate,
                     "p-valor" = "p-value")) %>%
-            select(-`CI Low`, -`CI High`) %>%
+            select(-`CI Low`, -`CI High`, -`q-value`) %>%
             head(10) %>%
             my_kable(caption = "Lista das frases com o menor p-valor, ajustado segundo o critério de Holm, e intervalo de confiança por Bonferroni, segundo combinação advérbio-verbo-ordem. O Efeito Moçambique é o incremento na aceitabilidade  do indivíduo pertencer a este país.") %>%
             kableExtra::kable_styling(latex_options = "HOLD_position")

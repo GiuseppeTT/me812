@@ -185,7 +185,7 @@ readd(anova_results) %>%
     arrange(`p-value`) %>%
     mutate(Estimate = round(Estimate,2), `p-value` = round(`p-value`,3)) %>%
     rename(c("Classe adverbial" = "Adverb Class", "Forma verbal" = "Verb Form", Ordem = Order, "Efeito Moçambique" = Estimate, "p-valor" = "p-value")) %>%
-    select(-`CI Low`, -`CI High`) %>% head(10) %>% my_kable() %>%
+    select(-`CI Low`, -`CI High`, -`q-value`) %>% head(10) %>% my_kable() %>%
     kableExtra::kable_styling(latex_options="HOLD_position",font_size = 9)
 @
         \end{frame}

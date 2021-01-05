@@ -47,6 +47,7 @@ my_extract_results <- function(
         ungroup() %>%
         unnest(result) %>%
         filter(term != "(Intercept)") %>%
+        mutate(q.value = qvalue::qvalue(p.value)$qvalues) %>%
         mutate(p.value = p.adjust(p.value))
 
     results <-
@@ -58,7 +59,8 @@ my_extract_results <- function(
             Estimate = estimate,
             `CI Low` = conf.low,
             `CI High` = conf.high,
-            `p-value` = p.value
+            `p-value` = p.value,
+            `q-value` = q.value
         )
 
     return(results)

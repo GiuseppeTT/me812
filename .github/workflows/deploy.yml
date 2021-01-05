@@ -37,6 +37,9 @@ jobs:
           sudo apt-get install -y libcurl4-openssl-dev
           make dependencies
           
+          # renv doesn't track dev dependencies
+          Rscript -e "install.packages('rsconnect')"
+          
       - name: Run analysis
         run: |
           make analysis
@@ -50,4 +53,4 @@ jobs:
           # shinyapps doesn't work with renv
           rm .Rprofile
           Rscript -e "source('renv/activate.R');rsconnect::setAccountInfo(name = '${{ secrets.SHINYAPPS_NAME }}', token = '${{ secrets.SHINYAPPS_TOKEN }}', secret = '${{ secrets.SHINYAPPS_SECRET }}')"
-          Rscript -e "source('renv/activate.R');rsconnect::deployApp()"
+          Rscript -e "source('renv/activate.R');options(repos = BiocManager::repositories());rsconnect::deployApp()"

@@ -1,0 +1,223 @@
+% Document class ---------------------------------------------------------------
+\documentclass{beamer}
+
+% Theme ------------------------------------------------------------------------
+\usetheme{metropolis}
+
+% R header ---------------------------------------------------------------------
+<<setup, include = FALSE>>=
+knitr::opts_chunk$set(
+    echo = FALSE,
+    fig.align = "center",
+    fig.path = tempdir(),
+    fig.width = 6,
+    fig.height = 4,
+    fig.pos = "ht",
+    out.width = "100%",
+    warning = FALSE
+)
+
+# Makes sure the report working directory is the same as the project working directory
+knitr::opts_knit$set(
+    root.dir = rprojroot::find_rstudio_root_file()
+)
+@
+
+<<packages, include = FALSE>>=
+library(tidyverse)
+library(drake)
+@
+
+<<functions, include = FALSE>>=
+my_kable <- function(
+    data,
+    ...
+) {
+    data %>%
+        knitr::kable(digits = 3, linesep = "", booktabs = TRUE, ...) %>%
+        kableExtra::kable_styling(position = "center")
+}
+@
+
+<<constants, include = FALSE>>=
+GG_THEME <- theme(plot.background = element_rect(fill = "transparent", color = NA))
+@
+
+
+% Meta information -------------------------------------------------------------
+\title{Trabalho Final - Consultoria Estatística ME712/812}
+\subtitle{Análise estatística de línguas lusófanas}
+\author{
+    Giuseppe T. Tomio
+    \and
+    João Victor S. Accorsi
+    \and
+    Júlio M. Pazelli
+    \and
+    Nicholas S. Soria
+    \and
+    Pedro F. M. Santos
+    \vfill
+    {\tiny
+        Orientadora: Mariana R. Motta
+        \hfill
+        Pesquisador: Aquiles T. Neto
+    }
+}
+\date{}
+
+% Preamble ---------------------------------------------------------------------
+\input{\Sexpr{preamble_path}}
+
+\begin{document}
+    \justifying
+
+    \frame{\titlepage}
+
+    \section{Introdução}
+        \begin{frame}{Introdução}
+            \begin{itemize}
+                \item Países de língua lusófana do estudo: Angola e Moçambique
+                \item Diferenças entre as gramáticas?
+                \item Tradição \textit{Pollockiana}
+            \end{itemize}
+        \end{frame}
+
+    \section{Experimento e Dados}
+        \begin{frame}{Dados}
+            \begin{itemize}
+                \item \textbf{Ordem:} Ordem dos elementos dentro da sentença (verbo, objeto e advérbio) totalizando 12
+                \item \textbf{Classe do Advérbio:} Classe do advérbio totalizando 32
+                \item \textbf{Nível:} Nível do advérbio se encontra (definido pelo pesquisador) totalizando 3
+                \item \textbf{Forma Verbal:} Forma verbal totalizando 4
+                \item \textbf{Id:} Número identificador do indivíduo que respondeu o questionário
+                \item \textbf{Aceitabilidade:} Aceitabilidade (de 1 a 5 na escala Likert) dada pelo indivíduo para uma determinada sentença
+            \end{itemize}
+        \end{frame}
+
+
+   \section{Objetivos}
+        \begin{frame}{Objetivos}
+            \begin{itemize}
+                \item Verificar se existe diferença na aceitabilidade das frases escritas com o português de Angola e de Moçambique
+                \item Definir a posição da frase dentro da Hierarquia de advérbios
+            \end{itemize}
+        \end{frame}
+
+    \section{Análise Exploratória}
+        \begin{frame}{Classe dos Advérbios}
+<<angola_acceptability_plot, out.height="90%", out.width=NULL, fig.height=7, fig.width=10>>=
+p <- readd(mean_acceptability_plot)
+angola_acceptability <-
+  p %>%
+  magrittr::extract2("data") %>%
+  filter(country == "Angola")
+
+p <- p %+% angola_acceptability
+p <- p + GG_THEME
+
+p
+@
+        \end{frame}
+
+        \begin{frame}{Classe dos Advérbios}
+<<mozambique_acceptability_plot, out.height="90%", out.width=NULL, fig.height=7, fig.width=10>>=
+p <- readd(mean_acceptability_plot)
+mozambique_acceptability <-
+  p %>%
+  magrittr::extract2("data") %>%
+  filter(country == "Mozambique")
+
+p <- p %+% mozambique_acceptability
+p <- p + GG_THEME
+
+p
+@
+        \end{frame}
+
+       \begin{frame}{Forma Verbal}
+<<boxplot_verbform>>=
+readd(boxplot_verbform) + GG_THEME
+@
+        \end{frame}
+
+  \begin{frame}{Ordem}
+<<boxplot_order>>=
+readd(boxplot_order) + GG_THEME
+@
+        \end{frame}
+
+
+     \section{Metodologia}
+        \begin{frame}{Metodologia}
+            \begin{itemize}
+                \item Dependência
+                \item ANOVA Mista
+                \item ANOVAs Simultâneas
+                \item Método de Holm
+            \end{itemize}
+        \end{frame}
+
+        \begin{frame}{ANOVAS Simultâneas}
+            Uma anova para cada frase (índice $j$)
+
+            \begin{equation*}
+                \begin{gathered}
+y_{i, j} = \beta_{0, j} + \beta_{1, j} x_{i, j} + \epsilon_{i, j} , \\
+\text{com } \epsilon_{i, j} \sim \Normal(0, \sigma_{j}) \text{ e } \{ \epsilon_{i, j} \}_{i} \text{ independentes para cada } j
+                \end{gathered}
+            \end{equation*}
+        \end{frame}
+
+        \begin{frame}{Método de Holm}
+            \begin{itemize}
+                \item Corrige inflação de p-valores
+                \item Não assume uma estrutura de dependencia específica
+                \item Uniformemente mais poderoso do que a correção de Bonferroni
+                \item Simples: orderne os $n$ p-valores e aplique Bonferronis sequencialmente usando os respectivos níveis $\left(\frac{\alpha}{n}, \frac{\alpha}{n-1}, \ldots, \frac{\alpha}{1}\right)$
+            \end{itemize}
+        \end{frame}
+
+    \section{Resultados}
+         \begin{frame}{Resultados das ANOVAs Simultâneas:}
+<<anova_results>>=
+readd(anova_results) %>%
+    arrange(`p-value`) %>%
+    mutate(Estimate = round(Estimate,2), `p-value` = round(`p-value`,3)) %>%
+    rename(c("Classe adverbial" = "Adverb Class", "Forma verbal" = "Verb Form", Ordem = Order, "Efeito Moçambique" = Estimate, "p-valor" = "p-value")) %>%
+    select(-`CI Low`, -`CI High`, -`q-value`) %>% head(10) %>% my_kable() %>%
+    kableExtra::kable_styling(latex_options="HOLD_position",font_size = 9)
+@
+        \end{frame}
+
+      \begin{frame}{Gráfico Quantil-Quantil dos Resíduos:}
+<<residue_plot>>=
+readd(residue_plot) + GG_THEME
+@
+        \end{frame}
+
+        \begin{frame}{Extras:}
+            \begin{itemize}
+                \item \textbf{GitHub:} \href{https://github.com/GiuseppeTT/me812}{github.com/GiuseppeTT/me812}
+                \item \textbf{shinyapps:} \href{https://giuseppett.shinyapps.io/me812/}{giuseppett.shinyapps.io/me812}
+            \end{itemize}
+        \end{frame}
+
+  \section{Considerações e Conclusão}
+        \begin{frame}{Conclusão}
+            \begin{itemize}
+                \item \textbf{Considerações:}
+                \begin{itemize}
+                    \item Falta de aleatoriedade no questionário e participantes
+                    \item Poder da análise limitado (cerca de 200 participantes e 900 ``tratamentos'')
+                    \item Questionário exaustivo (em média 100 perguntas, chegando até 200)
+                    \item Teoria liguistica com poucas evidências
+                \end{itemize}
+                \item \textbf{Conclusões:}
+                \begin{itemize}
+                    \item Há diferença entre o português de Angola e Moçambique
+                    \item Interpretação de demais resultados a cargo do pesquisador pela necessidade de conhecimentos de linguística e embasamento científico
+                \end{itemize}
+            \end{itemize}
+        \end{frame}
+\end{document}

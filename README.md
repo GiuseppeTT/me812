@@ -108,4 +108,11 @@ Some useful links:
     - GitHub Actions: https://github.com/features/actions.
     - git submodules: https://git-scm.com/book/en/v2/Git-Tools-Submodules.
 
+
+## TODO:
+- Maybe change the project structure a little bit:
+    - Split ```documents/``` into ```report/```and ```presentation/```.
+    - Rename ```drake/``` to ```workflow/```.
+    - Rename ```shiny/``` to ```dashboard/``` and move ```app.R``` to it.
+
 </div>

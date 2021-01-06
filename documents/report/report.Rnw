@@ -88,7 +88,26 @@ my_kable <- function(
 
         Cada indivíduo repondeu apenas um questionário contendo aproximadamente 120 perguntas diferentes, a partir disso foi possível construir um novo banco de dados em que cada pessoa é representada através de um \textit{id}.
 
-        O banco de dados é constituído pelas seguintes variáveis: \textit{\textbf{Sentence}} - frases que foram definidas pelo pesquisador que entraram nos questionários; \textit{\textbf{Order}} - ordens das sentenças; \textit{\textbf{Adverb Class}} - classe do advérbio; \textit{\textbf{Level}} - classe em que o advérbio foi definido pelo pesquisador (alta, baixa, média); \textit{\textbf{Country}} - local de origem da pesquisa; \textit{\textbf{Verb Form}} - forma do verbo, infinitivo, gerúndio, finito, particípio passado ativo; \textit{\textbf{Id}} - classificação do usuário; \textit{\textbf{Acceptability}} - aceitabilidade dada pelo indivíduo com relação a frase definida com base na escala Likert; \textit{\textbf{Age}} - Idade do participante variando de 12 até 60 anos, ver Figura \ref{fig:barplot_age};  \textit{\textbf{Hometown}} - cidade de origem do entrevistado; \textit{\textbf{Gender}} - gênero, ver Figura \ref{fig:barplot_gender}; \textit{\textbf{Actual City}} - cidade atual do entrevistado; \textit{\textbf{Other Language}} - indica se o participante fala outro idioma além do português e se sim, quais línguas o participante fala; \textit{\textbf{Parents Language}} - idioma dos pais; \textit{\textbf{Degree}} - grau de escolaridade indo de ensino médio até superior completo; \textit{\textbf{Adverb Level}} - nível do advérbio, veja Tabela \ref{tab:adverb_class}.
+        O banco de dados é constituído pelas seguintes variáveis:
+
+        \begin{itemize}
+            \item \textit{\textbf{Sentence}} - frases que foram definidas pelo pesquisador que entraram nos questionários;
+            \item \textit{\textbf{Order}} - ordens das sentenças;
+            \item \textit{\textbf{Adverb Class}} - classe do advérbio;
+            \item \textit{\textbf{Level}} - classe em que o advérbio foi definido pelo pesquisador (alta, baixa, média);
+            \item \textit{\textbf{Country}} - local de origem da pesquisa;
+            \item \textit{\textbf{Verb Form}} - forma do verbo, infinitivo, gerúndio, finito, particípio passado ativo;
+            \item \textit{\textbf{Id}} - classificação do usuário;
+            \item \textit{\textbf{Acceptability}} - aceitabilidade dada pelo indivíduo com relação a frase definida com base na escala Likert;
+            \item \textit{\textbf{Age}} - Idade do participante variando de 12 até 60 anos, ver Figura \ref{fig:barplot_age};
+            \item \textit{\textbf{Hometown}} - cidade de origem do entrevistado;
+            \item \textit{\textbf{Gender}} - gênero, ver Figura \ref{fig:barplot_gender};
+            \item \textit{\textbf{Actual City}} - cidade atual do entrevistado;
+            \item \textit{\textbf{Other Language}} - indica se o participante fala outro idioma além do português e se sim, quais línguas o participante fala;
+            \item \textit{\textbf{Parents Language}} - idioma dos pais;
+            \item \textit{\textbf{Degree}} - grau de escolaridade indo de ensino médio até superior completo;
+            \item \textit{\textbf{Adverb Level}} - nível do advérbio, veja Tabela \ref{tab:adverb_class}.
+        \end{itemize}
 
          <<adverb_class>>=
          readd(adverb_table) %>%

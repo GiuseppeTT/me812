@@ -39,6 +39,7 @@ jobs:
           
           # renv doesn't track dev dependencies
           Rscript -e "install.packages('rsconnect')"
+          Rscript -e "install.packages('BiocManager')"
           
       - name: Run analysis
         run: |

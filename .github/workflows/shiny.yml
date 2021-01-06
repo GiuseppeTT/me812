@@ -1,4 +1,4 @@
-name: Deploy
+name: Shiny
 
 on: 
   push:
@@ -11,7 +11,7 @@ env:
 
 jobs:
   deploy:
-    name: deploy
+    name: Deploy shiny app
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -46,8 +46,8 @@ jobs:
 
       - name: Push app to shinyapps.io
         run: |
-          # shinyapps deployment requires environment variables to be saved on .Renviron
-          echo "SHINYMANAGER_USER=${{ secrets.SHINYMANAGER_USER }}" > .Renviron
+          # shinyapps requires environment variables to be saved on .Renviron
+          echo "SHINYMANAGER_USER=${{ secrets.SHINYMANAGER_USER }}" >> .Renviron
           echo "SHINYMANAGER_PASSWORD=${{ secrets.SHINYMANAGER_PASSWORD }}" >> .Renviron
           
           # shinyapps doesn't work with renv

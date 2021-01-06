@@ -4,7 +4,7 @@ my_read_original <- function(path_name, form){
   file <- file.path(path, path_name)
 
   # read data
-  var_name <- read_excel(file, sheet = "Feuil1")
+  var_name <- readxl::read_excel(file, sheet = "Feuil1")
 
   # remove cols
   if(var_name$Subset[1] == "Angola"){

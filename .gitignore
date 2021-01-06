@@ -1,11 +1,11 @@
 # Rstudio default
-.Rproj.user
+.Rproj.user/
 .Rhistory
 .RData
 .Ruserdata
 
 # Drake
-.drake
+.drake/
 
 # rsconnect
 rsconnect/
